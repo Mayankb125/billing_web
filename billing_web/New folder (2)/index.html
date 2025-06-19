@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Bill Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-box">
+        <div class="content-row">
+            <div class="left-portion">
+                <div class="company-title"><h1>Solar Edge Private Limited</h1></div>
+                <div class="section">
+                    <input type="text" id="companyName" class="input-bold" placeholder="Company Name" value="M/s. Mikado Realtors Pvt. Ltd.">
+                    <div class="offtaker">
+                        <span class="offtaker-label">Offtaker code</span> - <span class="offtaker-code">SPC-4118-0013</span>
+                    </div>
+                    <div class="address-block">
+                        <div class="address-label">Bill To:</div>
+                        <textarea id="billTo" class="input-address" rows="2" placeholder="Bill To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004,
+Haryana, India</textarea>
+                    </div>
+                    <div class="address-block">
+                        <div class="address-label">Ship To:</div>
+                        <textarea id="shipTo" class="input-address" rows="2" placeholder="Ship To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004,
+Haryana, India</textarea>
+                    </div>
+                    <div class="gstin">
+                        <span class="address-label">GSTIN:</span> 06AAECM7429E1ZJ
+                    </div>
+                    <div class="capacity">
+                        Solar Plant Total Capacity (kW): <span>328.09</span>
+                    </div>
+                </div>
+                <div class="summary-section">
+                    <div class="summary-title">SUMMARY OF CONSUMPTION</div>
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <span id="billedUnits">0.00</span> <br>
+                            <span class="summary-label">Total Billed Units</span>
+                        </div>
+                        <div class="summary-card">
+                            <span id="days">31</span> <br>
+                            <span class="summary-label">Days</span>
+                        </div>
+                        <div class="summary-card">
+                            <span id="kwhPerDay">0.00</span> <br>
+                            <span class="summary-label">kWh/Day</span>
+                        </div>
+                        <div class="summary-card">
+                            <span id="kwhPerKwpDay">0.00</span> <br>
+                            <span class="summary-label">kWh/kWp/Day</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bill-section">
+                    <div class="bill-title">BREAKUP OF CURRENT BILL</div>
+                    <table class="bill-table">
+                        <thead>
+                            <tr>
+                                <th> </th>
+                                <th>Units(kWh)</th>
+                                <th>Tariff(Rs/kWh)</th>
+                                <th>Amount(Rs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Generation</td>
+                                <td><span id="genUnits">0.00</span></td>
+                                <td><input type="number" id="genTariff" class="table-input" value="5.590"></td>
+                                <td><span id="genAmount" class="table-total-unit">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <td>Adjustment(kWh)</td>
+                                <td><input type="number" id="adjUnits" class="table-input" value="0.00"></td>
+                                <td><input type="number" id="adjTariff" class="table-input" value="5.590"></td>
+                                <td><span id="adjAmount" class="table-total-unit">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <td>Deemed Generation</td>
+                                <td><input type="number" id="deemedUnits" class="table-input" value="0.00"></td>
+                                <td><input type="number" id="deemedTariff" class="table-input" value="5.590"></td>
+                                <td><span id="deemedAmount" class="table-total-unit">0.00</span></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" style="font-weight:bold;">Solar Charges</td>
+                                <td id="solarCharges">2,40,353.23</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Electricity Duty</td>
+                                <td id="electricityDuty">0</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">GST @0%</td>
+                                <td id="gst">0</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="3" style="font-weight:bold;">Total Charges</td>
+                                <td id="totalCharges">2,40,353.23</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="remarks-block">
+                        <span>Remarks:</span>
+                        <input type="text" id="remarks" class="remarks-input" placeholder="Remarks">
+                    </div>
+                </div>
+                <div class="contact-info-box">
+                    For any queries contact here <span class="contact-email">resco.billing@fourthpartner.co</span>
+                </div>
+            </div>
+            <div class="right-portion">
+                <!-- Right portion: Bill of Supply and Overview -->
+                <div class="bill-supply-box">
+                    <div class="bill-supply-title">SOLAR BILL OF SUPPLY<br><span class="bill-supply-month">- May 2025</span></div>
+                    <div class="bill-supply-details">
+                        <div><span class="bill-supply-label">Bill No:</span> <input type="text" id="billNo" class="right-input" value="S4118/TS/26/0033"></div>
+                        <div><span class="bill-supply-label">Bill Date:</span> <input type="date" id="billDate" class="right-input" value="2025-06-05"></div>
+                        <div><span class="bill-supply-label">Bill Start Date:</span> <input type="date" id="billStartDate" class="right-input" value="2025-05-01"></div>
+                        <div><span class="bill-supply-label">Bill End Date:</span> <input type="date" id="billEndDate" class="right-input" value="2025-05-31"></div>
+                        <div><span class="bill-supply-label">HSN Code:</span> <input type="text" id="hsnCode" class="right-input" value="27160000"></div>
+                    </div>
+                    <div class="bill-overview-title">YOUR BILL OVERVIEW</div>
+                    <div class="bill-overview-details">
+                        <div><span class="bill-supply-label">Due Date:</span> <input type="date" id="dueDate" class="right-input" value="2025-07-05"></div>
+                        <div><span class="bill-supply-label">Late Payment Penalty:</span> <input type="text" id="latePenalty" class="right-input" value="2% / Month"></div>
+                    </div>
+                    <div class="bill-amount-section">
+                        <div class="amount-label">Current Invoice Amount</div>
+                        <div class="amount-invoice-bg"><span class="amount-invoice" id="currentInvoiceAmount">Rs 2,40,353</span></div>
+                        <div class="amount-equals">Equals</div>
+                        <div class="amount-block-bg">
+                            <div class="amount-block-label">Current Bill Amount</div>
+                            <div class="amount-block-white"><span class="amount-block-value" id="currentBillAmount">Rs 2,40,353.23</span></div>
+                        </div>
+                        <div class="amount-plus">+</div>
+                        <div class="amount-block-bg">
+                            <div class="amount-block-label">Late Penalty Charges</div>
+                            <div class="amount-block-white"><span class="amount-block-value" id="latePenaltyCharges">Rs 0.00</span></div>
+                        </div>
+                    </div>
+                    <div class="payment-details-section">
+                        <div class="payment-title">PAYMENT DETAILS</div>
+                        <div class="payment-row"><span class="payment-label">Bank Name:</span> <span class="payment-value">Sun Renew. RT  -  Trust and Retention Account - 777705011335</span></div>
+                        <div class="payment-row"><span class="payment-label">A/C No:</span> <span class="payment-value">777705011335</span></div>
+                        <div class="payment-row"><span class="payment-label">IFSC Code:</span> <span class="payment-value">ICIC0000076</span></div>
+                        <div class="payment-row payment-signatory-label">Authorized Signatory:</div>
+                        <div class="payment-row payment-signatory-name">Mr. A V Rajasekhar</div>
+                        <!-- Leave white space here for signature and verification -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section">
+            <div class="footer-inner">
+                <hr class="footer-divider">
+                <div class="footer-content">
+                    <div class="footer-left">
+                        This Bill is generated on behalf of<br>
+                        <span class="footer-bold">FPEL Solar Edge Private Limited</span>
+                    </div>
+                    <div class="footer-right">
+                        <span class="footer-bold">Registered Office:</span> Second Floor, Plot No. N46, House No. 4-9 -10, HMT Nagar, Nacharam, Hyderabad-500076, Telangana, India<br>
+                        <span class="footer-bold">GSTIN:</span> 36AACCO1335K1ZI
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-box">
+        <div class="next-header">
+            <span class="header-title">SOLAR BILL OF SUPPLY</span> - <span class="header-month">May 2025</span> |
+            <span class="header-party">M/s Mikado Realtors Pvt. Ltd.</span> |
+            <span class="header-generated">Generated by FPEL Solar Edge Private Limited</span>
+        </div>
+        <div class="next-content-row">
+            <div class="next-left-section">
+                <div class="meter-title">METER READINGS</div>
+                <table class="meter-table" id="meterTable">
+                    <thead>
+                        <tr>
+                            <th>Meters</th>
+                            <th>Start Reading</th>
+                            <th>End Reading</th>
+                            <th>Difference</th>
+                            <th>MF</th>
+                            <th>Adjustment</th>
+                            <th>Total Units</th>
+                        </tr>
+                    </thead>
+                    <tbody id="meterTableBody">
+                        <tr>
+                            <td><input type="text" class="meter-input meter-name" value="Device-1"></td>
+                            <td><input type="number" class="meter-input meter-start" value="0" step="0.0001"></td>
+                            <td><input type="number" class="meter-input meter-end" value="0" step="0.0001"></td>
+                            <td><input type="number" class="meter-input meter-diff" value="0" step="0.0001" readonly></td>
+                            <td><input type="number" class="meter-input meter-mf" value="1.00" step="0.01"></td>
+                            <td><input type="number" class="meter-input meter-adj" value="0.00" step="0.01"></td>
+                            <td><input type="number" class="meter-input meter-total" value="0.00" step="0.01" readonly></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="meter-total-row">
+                            <td colspan="6" class="meter-total-label">Total generation</td>
+                            <td class="meter-total-value" id="meterTotalUnits">0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <button id="addDeviceBtn" class="add-device-btn">Add Device</button>
+                <button id="removeDeviceBtn" class="remove-device-btn">Remove Device</button>
+            </div>
+            <div class="next-right-section">
+                <div class="faq-title">FAQs</div>
+                <div class="faq-item">
+                    <div class="faq-q">Generation Units</div>
+                    <div class="faq-a">Energy generated by Solar Power Plant for the given invoice period as recorded by energy meters</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Adjustment Units</div>
+                    <div class="faq-a">Units derived from alternative record (for example Inverter generation record) for the specific instances where deviation was observed in generation unit due to technical issues in the metering panel</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Tariff</div>
+                    <div class="faq-a">Per unit agreed cost for billing for the invoice period as per Power Purchase Agreement</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Deemed Generation Units</div>
+                    <div class="faq-a">Potential Units generated for periods when Solar Power Plant could not operate due to reasons un-attributable to the Power producer including but not limited to power outage, curtailment of solar generation with DG running etc</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="generateBillBtn" class="generate-bill-btn">Generate Bill (PDF)</button>
+    <script src="script.js"></script>
+</body>
+</html> 
