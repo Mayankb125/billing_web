@@ -1,0 +1,78 @@
+/* Navbar */
+.navbar {
+  background-color: white;
+  padding: 15px 40px;
+}
+
+/* Logo */
+.logoheader {
+  height: 50px;
+  width: auto;
+}
+
+/* Nav Links */
+.navbar-nav {
+  gap: 20px;
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4c9c49;
+  padding: 10px 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #ef9835;
+}
+
+/* Active Link */
+.nav-link.active {
+  color: black;
+  font-weight: bold;
+  border-bottom: 3px solid #ffcc00;
+}
+
+/* CTA Button */
+.cta-button {
+  background-color: #ef9835;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cta-button i {
+  color: white;
+}
+
+.cta-button:hover {
+  background-color: #d57724;
+}
+
+/* Mobile View */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: white;
+    padding: 10px;
+  }
+
+  .navbar-nav {
+    align-items: start;
+    gap: 15px;
+  }
+
+  .cta-button {
+    margin-left: auto;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0,0,0,0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+}

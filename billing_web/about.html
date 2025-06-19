@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Navbar CSS -->
+  <link rel="stylesheet" href="navbar.css">
+  <!-- About Page CSS -->
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <div class="about-hero">
+    <div class="about-hero-content">
+      <h1>About Us</h1>
+      <p>Our mission is to provide businesses with the financial tools they need to thrive in today's market.</p>
+    </div>
+  </div>
+  <section class="stats-section">
+    <div class="stats-cards">
+      <div class="stats-card">
+        <h3>Digital Experience</h3>
+        <div class="stats-number">500</div>
+        <p class="stats-desc">We provide best customer imperatives without state of the</p>
+      </div>
+      <div class="stats-card">
+        <h3>Total Clients</h3>
+        <div class="stats-number">14M</div>
+        <p class="stats-desc">We have 4 Million client all over the wold you can check our customer reviews.</p>
+      </div>
+      <div class="stats-card">
+        <h3>Digital Solutions</h3>
+        <div class="stats-number">15K</div>
+        <p class="stats-desc">Digital industry is growing fast and our finance industry need better solution.</p>
+      </div>
+    </div>
+  </section>
+  <section class="service-breakdown-section">
+    <div class="service-breakdown-container">
+      <div class="service-breakdown-header">
+        <h2>ATTENTION TO DETAIL AT EVERY LEVEL</h2>
+      </div>
+      <div class="service-breakdown-content">
+        <div class="service-breakdown-main">
+          <div class="service-breakdown-image-nav">
+            <button class="service-arrow left">&#8592;</button>
+            <img src="about1.jpg" alt="Exterior Detailing" class="service-img">
+            <button class="service-arrow right">&#8594;</button>
+          </div>
+          <div class="service-breakdown-info">
+            <h3>EXTERIOR DETAILING</h3>
+            <p>From cladding to façade treatments, we provide exterior detailing that elevates the appearance and performance of your building. Our designs not only enhance the visual appeal but also improve durability and weather resistance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-cards">
+      <div class="team-card">
+        <img src="team1.jpg" alt="Mrs Uma Singh" class="team-img">
+        <h3>Mrs Uma Singh</h3>
+        <p class="team-title">Managing Director</p>
+        <p class="team-desc">As head of the company, my job is to ensure everyone</p>
+        <a href="#" class="team-readmore">Read More</a>
+        <div class="team-social">
+          <span class="team-linkedin">in</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="team2.jpg" alt="Mr Sidhyant Manu" class="team-img">
+        <h3>Mr Sidhyant Manu</h3>
+        <p class="team-title">Director/COO</p>
+        <p class="team-desc">As head of the company, my job is to ensure everyone</p>
+        <a href="#" class="team-readmore">Read More</a>
+        <div class="team-social">
+          <span class="team-linkedin">in</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="team3.jpg" alt="Mr Shekhar Keshav" class="team-img">
+        <h3>Mr Shekhar Keshav</h3>
+        <p class="team-title">Hon. Director</p>
+        <p class="team-desc">As head of the company, my job is to ensure everyone</p>
+        <a href="#" class="team-readmore">Read More</a>
+        <div class="team-social">
+          <span class="team-linkedin">in</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="team4.jpg" alt="Mrs Priti Agarwal" class="team-img">
+        <h3>Mrs Priti Agarwal</h3>
+        <p class="team-title">Hon. Director</p>
+        <p class="team-desc">As head of the company, my job is to ensure everyone</p>
+        <a href="#" class="team-readmore">Read More</a>
+        <div class="team-social">
+          <span class="team-linkedin">in</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="navbar.js"></script>
+<script>
+  // Load navbar.html dynamically
+  fetch("navbar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    });
+</script> 
