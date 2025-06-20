@@ -357,7 +357,7 @@ body {
 .bill-supply-box {
     background: #e3e5e2;
     border-radius: 2px;
-    padding: 18px 18px 18px 18px;
+    padding: 18px 18px 18px 8px;
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
@@ -378,8 +378,8 @@ body {
 .bill-overview-details {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 18px;
+    gap: 2px;
+    margin-bottom: 10px;
 }
 
 .bill-supply-details {
@@ -392,18 +392,24 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     margin-bottom: 0;
-    padding: 2px 0 2px 0;
+    padding:  0;
 }
 
 .bill-supply-label {
     font-weight: bold;
-    min-width: 120px;
+    min-width: 80px;
     display: inline-block;
     font-size: 1rem;
     color: #222;
     letter-spacing: 0.2px;
+}
+
+.late-penalty-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 .right-input {
