@@ -70,13 +70,14 @@ body {
 
 .company-name-block {
     font-weight: bold;
-    font-size: 1.15rem;
-    margin-bottom: 2px;
+    font-size: 1.35rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .company-name-main {
     font-weight: bold;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     width: 100%;
     border: none;
     background: transparent;
@@ -876,13 +877,13 @@ body {
 }
 
 @media print {
-
     html,
     body {
         -webkit-print-color-adjust: exact !important;
         color-adjust: exact !important;
         print-color-adjust: exact !important;
         background: #fff !important;
+        margin-top: 10px !important;
     }
 
     @page {
@@ -971,6 +972,12 @@ body {
 
     body.print-bill .signature-box {
         border: 1.5px solid #ccc !important;
+    }
+
+    .company-name-main {
+        font-size: 1.2rem !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 }
 
@@ -1070,4 +1077,10 @@ body {
 }
 .gstin-label, .capacity-label {
     font-weight: bold;
+}
+
+.no-border {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
 }
