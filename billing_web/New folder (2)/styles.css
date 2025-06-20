@@ -235,33 +235,51 @@ body {
     font-weight: 500;
     font-size: 1rem;
 }
+.bill-supply-details, .bill-overview-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+}
 .bill-supply-details {
     margin-bottom: 16px;
     margin-top: 8px;
+}
+.bill-supply-details div,
+.bill-overview-details div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0;
+    padding: 2px 0 2px 0;
 }
 .bill-supply-label {
     font-weight: bold;
     min-width: 120px;
     display: inline-block;
-}
-.bill-supply-details div,
-.bill-overview-details div {
-    margin-bottom: 6px;
+    font-size: 1rem;
+    color: #222;
+    letter-spacing: 0.2px;
 }
 .right-input {
     border: none;
     background: transparent;
     font-size: 1rem;
     font-family: inherit;
-    padding: 2px 4px;
+    padding: 4px 8px;
     width: 160px;
     color: #222;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left;
 }
 .bill-overview-title {
     font-weight: bold;
     font-size: 1.08rem;
-    margin-bottom: 2px;
-    margin-top: 10px;
+    margin-bottom: 8px;
+    margin-top: 18px;
+    letter-spacing: 0.2px;
 }
 .bill-overview-details {
     margin-top: 6px;
@@ -744,4 +762,18 @@ body {
     width: 794px;
     margin: 0 auto;
     box-sizing: border-box;
-} 
+}
+
+.bill-supply-title {
+    font-weight: bold;
+    font-size: 1.18rem;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.bill-supply-month {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 2px;
+    color: #222;
+}
