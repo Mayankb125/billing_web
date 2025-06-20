@@ -34,11 +34,89 @@ body {
     font-size: 0.85rem;
 }
 
-.company-title {
+.company-header {
+    margin-bottom: 10px;
+    padding: 0 0 0 0;
+    background: #fff;
+}
+
+.company-title-main {
     text-align: center;
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-bottom: 32px;
+    margin-bottom: 18px;
+}
+
+.company-title-input.underline {
+    font-size: 2.2rem;
+    font-weight: bold;
+    width: 90%;
+    border: none;
+    border-bottom: 2px solid #222;
+    background: transparent;
+    color: #222;
+    padding: 0;
+    margin: 0 auto 0 auto;
+    outline: none;
+    text-align: center;
+    display: block;
+}
+
+.company-section {
+    margin: 0;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+}
+
+.company-name-block {
+    font-weight: bold;
+    font-size: 1.15rem;
+    margin-bottom: 2px;
+}
+
+.company-name-main {
+    font-weight: bold;
+    font-size: 1.15rem;
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #222;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+.offtaker-block {
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.offtaker-label {
+    font-weight: bold;
+}
+
+.gstin-block, .capacity-block {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+.address-section {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+}
+
+.address-block {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.address-label {
+    font-weight: bold;
+    margin-bottom: 2px;
 }
 
 .section {
@@ -59,18 +137,6 @@ body {
 
 .offtaker .offtaker-code {
     font-weight: normal;
-}
-
-.address-block {
-    margin-bottom: 16px;
-}
-
-.address-label {
-    font-weight: bold;
-}
-
-.gstin {
-    margin-bottom: 8px;
 }
 
 .capacity {
@@ -967,4 +1033,41 @@ body {
     background: #c8f6fa;
     border-top: 2px solid #222;
     border-bottom: 2px solid #222;
+}
+
+.billto-label, .shipto-label {
+    font-weight: bold;
+    font-size: 1.08rem;
+    margin-bottom: 0;
+    margin-top: 0.15em;
+}
+.address-value {
+    margin-left: 0;
+}
+.address-textarea {
+    width: 100%;
+    min-height: 2em;
+    font-size: 0.98rem;
+    border: none;
+    background: transparent;
+    color: #222;
+    resize: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+}
+.gstin-capacity-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0.1em;
+}
+.gstin-block, .capacity-block {
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-top: 0.05em;
+    margin-bottom: 0.05em;
+}
+.gstin-label, .capacity-label {
+    font-weight: bold;
 }
