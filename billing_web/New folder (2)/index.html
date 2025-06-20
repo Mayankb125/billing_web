@@ -10,11 +10,11 @@
     <div class="page-box">
         <div class="content-row">
             <div class="left-portion">
-                <div class="company-title"><h1>Solar Edge Private Limited</h1></div>
+                <div class="company-title"><input type="text" id="companyTitle" class="company-title-input underline" value="Solar Edge Private Limited"></div>
                 <div class="section">
                     <input type="text" id="companyName" class="input-bold" placeholder="Company Name" value="M/s. Mikado Realtors Pvt. Ltd.">
                     <div class="offtaker">
-                        <span class="offtaker-label">Offtaker code</span> - <span class="offtaker-code">SPC-4118-0013</span>
+                        <span class="offtaker-label">Offtaker code</span> - <input type="text" id="offtakerCode" class="offtaker-code" value="SPC-4118-0013" style="border:none; background:transparent; width:120px; font:inherit; color:inherit; padding:0; margin:0; outline:none;">
                     </div>
                     <div class="address-block">
                         <div class="address-label">Bill To:</div>
@@ -27,10 +27,10 @@ Haryana, India</textarea>
 Haryana, India</textarea>
                     </div>
                     <div class="gstin">
-                        <span class="address-label">GSTIN:</span> 06AAECM7429E1ZJ
+                        <span class="address-label">GSTIN:</span> <input type="text" id="gstin" class="gstin-input" value="06AAECM7429E1ZJ" style="border:none; background:transparent; width:160px; font:inherit; color:inherit; padding:0; margin:0; outline:none;">
                     </div>
                     <div class="capacity">
-                        Solar Plant Total Capacity (kW): <span>328.09</span>
+                        Solar Plant Total Capacity (kW): <input type="number" id="plantCapacity" class="capacity-input" value="328.09" style="border:none; background:transparent; width:80px; font:inherit; color:inherit; padding:0; margin:0; outline:none;">
                     </div>
                 </div>
                 <div class="summary-section">
@@ -59,7 +59,7 @@ Haryana, India</textarea>
                     <table class="bill-table">
                         <thead>
                             <tr>
-                                <th> </th>
+                                <th></th>
                                 <th>Units(kWh)</th>
                                 <th>Tariff(Rs/kWh)</th>
                                 <th>Amount(Rs)</th>
@@ -85,24 +85,26 @@ Haryana, India</textarea>
                                 <td><span id="deemedAmount" class="table-total-unit">0.00</span></td>
                             </tr>
                         </tbody>
-                        <tfoot>
+                    </table>
+                    <table class="bill-summary-table">
+                        <tbody>
                             <tr>
-                                <td colspan="3" style="font-weight:bold;">Solar Charges</td>
-                                <td id="solarCharges">2,40,353.23</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">Electricity Duty</td>
-                                <td id="electricityDuty">0</td>
+                                <td class="bill-summary-label">Solar Charges</td>
+                                <td class="bill-summary-value" id="solarCharges">0.00</td>
                             </tr>
                             <tr>
-                                <td colspan="3">GST @0%</td>
-                                <td id="gst">0</td>
+                                <td class="bill-summary-label">Electricity Duty</td>
+                                <td class="bill-summary-value" id="electricityDuty">0.00</td>
                             </tr>
-                            <tr class="total-row">
-                                <td colspan="3" style="font-weight:bold;">Total Charges</td>
-                                <td id="totalCharges">2,40,353.23</td>
+                            <tr>
+                                <td class="bill-summary-label">GST @0%</td>
+                                <td class="bill-summary-value" id="gst">0.00</td>
                             </tr>
-                        </tfoot>
+                            <tr class="bill-summary-total-row">
+                                <td class="bill-summary-label" style="font-weight:bold; background:#c8f6fa;">Total Charges</td>
+                                <td class="bill-summary-value" id="totalCharges" style="font-weight:bold; background:#c8f6fa;">0.00</td>
+                            </tr>
+                        </tbody>
                     </table>
                     <div class="remarks-block">
                         <span>Remarks:</span>

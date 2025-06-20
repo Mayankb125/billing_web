@@ -108,6 +108,18 @@ body {
 .summary-card {
     flex: 1;
     text-align: center;
+    position: relative;
+}
+.summary-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    right: 0;
+    width: 2px;
+    height: 70%;
+    background: #b0b0b0;
+    opacity: 0.7;
+    border-radius: 2px;
 }
 .summary-input {
     width: 80%;
@@ -139,7 +151,7 @@ body {
 .bill-table th, .bill-table td {
     border: 1px solid #888;
     padding: 4px 6px;
-    text-align: right;
+    text-align: center;
     font-size: 0.85rem;
 }
 .bill-table th:first-child, .bill-table td:first-child {
@@ -776,4 +788,42 @@ body {
     font-size: 1rem;
     margin-left: 2px;
     color: #222;
+}
+
+.underline {
+    border: none;
+    border-bottom: 2px solid #222;
+    background: transparent;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 75%;
+    color: #222;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-align: center;
+}
+
+.bill-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.bill-summary-label {
+    text-align: left;
+    padding: 4px 0 4px 2px;
+    font-size: 1rem;
+}
+.bill-summary-value {
+    text-align: right;
+    padding: 4px 8px 4px 0;
+    font-size: 1rem;
+}
+.bill-summary-total-row .bill-summary-label,
+.bill-summary-total-row .bill-summary-value {
+    font-weight: bold;
+    background: #c8f6fa;
+    border-top: 2px solid #222;
+    border-bottom: 2px solid #222;
 }
