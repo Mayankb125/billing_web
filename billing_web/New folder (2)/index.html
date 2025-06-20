@@ -120,17 +120,45 @@
                 <div class="bill-supply-box">
                     <div class="bill-supply-title">SOLAR BILL OF SUPPLY<br><span class="bill-supply-month">- May 2025</span></div>
                     <div class="bill-supply-details">
-                        <div><span class="bill-supply-label">Bill No:</span> <input type="text" id="billNo" class="right-input" value="S4118/TS/26/0033"></div>
-                        <div><span class="bill-supply-label">Bill Date:</span> <input type="date" id="billDate" class="right-input" value="2025-06-05"></div>
-                        <div><span class="bill-supply-label">Bill Start Date:</span> <input type="date" id="billStartDate" class="right-input" value="2025-05-01"></div>
-                        <div><span class="bill-supply-label">Bill End Date:</span> <input type="date" id="billEndDate" class="right-input" value="2025-05-31"></div>
-                        <div><span class="bill-supply-label">HSN Code:</span> <input type="text" id="hsnCode" class="right-input" value="27160000"></div>
-                    </div>
-                    <div class="bill-overview-title">YOUR BILL OVERVIEW</div>
-                    <div class="bill-overview-details">
-                        <div><span class="bill-supply-label">Due Date:</span> <input type="date" id="dueDate" class="right-input" value="2025-07-05"></div>
-                        <div><span class="bill-supply-label">Late Payment Penalty:</span> <input type="text" id="latePenalty" class="right-input" value="2% / Month"></div>
-                    </div>
+    <div>
+        <span class="bill-supply-label">Bill No:</span>
+        <input type="text" id="billNo" class="right-input" value="S4118/TS/26/0033">
+        <span class="right-value" id="billNoPrint"></span>
+    </div>
+    <div>
+        <span class="bill-supply-label">Bill Date:</span>
+        <input type="date" id="billDate" class="right-input" value="2025-06-05">
+        <span class="right-value" id="billDatePrint"></span>
+    </div>
+    <div>
+        <span class="bill-supply-label">Bill Start Date:</span>
+        <input type="date" id="billStartDate" class="right-input" value="2025-05-01">
+        <span class="right-value" id="billStartDatePrint"></span>
+    </div>
+    <div>
+        <span class="bill-supply-label">Bill End Date:</span>
+        <input type="date" id="billEndDate" class="right-input" value="2025-05-31">
+        <span class="right-value" id="billEndDatePrint"></span>
+    </div>
+    <div>
+        <span class="bill-supply-label">HSN Code:</span>
+        <input type="text" id="hsnCode" class="right-input" value="27160000">
+        <span class="right-value" id="hsnCodePrint"></span>
+    </div>
+</div>
+<div class="bill-overview-title">YOUR BILL OVERVIEW</div>
+<div class="bill-overview-details">
+    <div>
+        <span class="bill-supply-label">Due Date:</span>
+        <input type="date" id="dueDate" class="right-input" value="2025-07-05">
+        <span class="right-value" id="dueDatePrint"></span>
+    </div>
+    <div>
+        <span class="bill-supply-label">Late Payment Penalty:</span>
+        <input type="text" id="latePenalty" class="right-input" value="2% / Month">
+        <span class="right-value" id="latePenaltyPrint"></span>
+    </div>
+</div>
                     <div class="bill-amount-section">
                         <div class="amount-label">Current Invoice Amount</div>
                         <div class="amount-invoice-bg"><span class="amount-invoice" id="currentInvoiceAmount">Rs 2,40,353</span></div>
@@ -146,14 +174,26 @@
                         </div>
                     </div>
                     <div class="payment-details-section">
-                        <div class="payment-title">PAYMENT DETAILS</div>
-                        <div class="payment-row"><span class="payment-label">Bank Name:</span> <span class="payment-value">Sun Renew. RT  -  Trust and Retention Account - 777705011335</span></div>
-                        <div class="payment-row"><span class="payment-label">A/C No:</span> <span class="payment-value">777705011335</span></div>
-                        <div class="payment-row"><span class="payment-label">IFSC Code:</span> <span class="payment-value">ICIC0000076</span></div>
-                        <div class="payment-row payment-signatory-label">Authorized Signatory:</div>
-                        <div class="payment-row payment-signatory-name">Mr. A V Rajasekhar</div>
-                        <!-- Leave white space here for signature and verification -->
-                    </div>
+    <div class="payment-title">PAYMENT DETAILS</div>
+    <div class="payment-row">
+    <span class="payment-label">Bank Name:</span>
+    <input type="text" class="payment-input" id="bankNameInput" value="Sun Renew. RT  -  Trust and Retention Account - 777705011335" oninput="document.getElementById('bankNamePrint').textContent=this.value;">
+    <span class="payment-value" id="bankNamePrint" style="display:none;">Sun Renew. RT  -  Trust and Retention Account - 777705011335</span>
+</div>
+<div class="payment-row">
+    <span class="payment-label">A/C No:</span>
+    <input type="text" class="payment-input" id="acNoInput" value="777705011335" oninput="document.getElementById('acNoPrint').textContent=this.value;">
+    <span class="payment-value" id="acNoPrint" style="display:none;">777705011335</span>
+</div>
+<div class="payment-row">
+    <span class="payment-label">IFSC Code:</span>
+    <input type="text" class="payment-input" id="ifscInput" value="ICIC0000076" oninput="document.getElementById('ifscPrint').textContent=this.value;">
+    <span class="payment-value" id="ifscPrint" style="display:none;">ICIC0000076</span>
+</div>
+    <div class="payment-row payment-signatory-label">Authorized Signatory:</div>
+    <div class="payment-row payment-signatory-name">Mr. A V Rajasekhar</div>
+    <!-- Leave white space here for signature and verification -->
+</div>
                 </div>
             </div>
         </div>

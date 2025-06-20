@@ -337,6 +337,22 @@ body {
     font-size: 0.85rem;
     background: #d3d5d3;
 }
+.right-value {
+    font-size: 1rem;
+    color: #222;
+    padding-left: 4px;
+    word-break: break-word;
+    font-family: inherit;
+    display: none;
+}
+
+@media screen {
+    .right-value { display: none; }
+}
+@media print {
+    .right-input { display: none !important; }
+    .right-value { display: inline !important; }
+}
 
 .bill-supply-box {
     background: #e3e5e2;
@@ -521,18 +537,64 @@ body {
     gap: 4px;
 }
 
+.payment-input {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    color: #222;
+    font-family: inherit;
+    padding: 2px 4px;
+    border-radius: 4px;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: background 0.2s, box-shadow 0.2s;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    resize: none;
+    flex: 1 1 0;
+}
+
+.payment-input-multiline {
+    min-height: 32px;
+    max-height: 60px;
+    resize: vertical;
+}
+
+.payment-input:focus {
+    background: #fff;
+    box-shadow: 0 0 0 2px #aef0f4;
+    border: 1px solid #aef0f4;
+}
+
 .payment-label {
     font-weight: bold;
     min-width: 80px;
     display: inline-block;
+    margin-right: 4px;
 }
 
 .payment-value {
-    font-size: 0.82rem;
+    font-size: 1rem;
     color: #222;
-    padding-left: 2px;
+    padding-left: 4px;
     word-break: break-word;
     font-family: inherit;
+    display: none;
+}
+
+/* Show/hide logic for screen and print */
+@media screen {
+    .payment-input, .payment-input-multiline { display: inline-block; }
+    .payment-value { display: none; }
+}
+@media print {
+    .payment-input, .payment-input-multiline { display: none !important; }
+    .payment-value { display: inline !important; }
+    .payment-label { font-weight: bold !important; }
 }
 
 .payment-signatory-label {

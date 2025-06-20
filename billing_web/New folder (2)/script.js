@@ -1,8 +1,48 @@
-// JS for dynamic insertion will be added in the next steps 
-
 function formatNumber(num) {
     return Number(num).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
+
+function formatDate(dateStr) {
+    if (!dateStr) return '';
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const d = new Date(dateStr);
+    if (isNaN(d)) return dateStr;
+    return `${String(d.getDate()).padStart(2, '0')}-${months[d.getMonth()]}-${d.getFullYear()}`;
+}
+
+// --- PRINT SPAN UPDATES ---
+function updatePrintFields() {
+    // Bill Details
+    const billNo = document.getElementById('billNo');
+    const billDate = document.getElementById('billDate');
+    const billStartDate = document.getElementById('billStartDate');
+    const billEndDate = document.getElementById('billEndDate');
+    const hsnCode = document.getElementById('hsnCode');
+    const dueDate = document.getElementById('dueDate');
+    const latePenalty = document.getElementById('latePenalty');
+
+    if (billNo) document.getElementById('billNoPrint').textContent = billNo.value;
+    if (billDate) document.getElementById('billDatePrint').textContent = formatDate(billDate.value);
+    if (billStartDate) document.getElementById('billStartDatePrint').textContent = formatDate(billStartDate.value);
+    if (billEndDate) document.getElementById('billEndDatePrint').textContent = formatDate(billEndDate.value);
+    if (hsnCode) document.getElementById('hsnCodePrint').textContent = hsnCode.value;
+    if (dueDate) document.getElementById('dueDatePrint').textContent = formatDate(dueDate.value);
+    if (latePenalty) document.getElementById('latePenaltyPrint').textContent = latePenalty.value;
+}
+
+// Attach listeners for print fields
+window.addEventListener('DOMContentLoaded', function() {
+    updatePrintFields();
+    ['billNo','billDate','billStartDate','billEndDate','hsnCode','dueDate','latePenalty'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener('input', updatePrintFields);
+            el.addEventListener('change', updatePrintFields);
+        }
+    });
+});
+
+// --- BILLING LOGIC (your original code, unchanged except for .value/.textContent fixes) ---
 
 function updateTableAmounts() {
     // For each row: Amount = Units * Tariff
@@ -41,9 +81,9 @@ function getTotalCharges() {
 
 function updateBillSummary() {
     // Get values from table inputs
-    const genAmount = parseFloat(document.getElementById('genAmount').textContent.replace(/,/g, '')) || 0;
-    const adjAmount = parseFloat(document.getElementById('adjAmount').textContent.replace(/,/g, '')) || 0;
-    const deemedAmount = parseFloat(document.getElementById('deemedAmount').textContent.replace(/,/g, '')) || 0;
+    const genAmount = parseFloat(document.getElementById('genAmount').textContent?.replace(/,/g, '') || document.getElementById('genAmount').value || 0) || 0;
+    const adjAmount = parseFloat(document.getElementById('adjAmount').textContent?.replace(/,/g, '') || document.getElementById('adjAmount').value || 0) || 0;
+    const deemedAmount = parseFloat(document.getElementById('deemedAmount').textContent?.replace(/,/g, '') || document.getElementById('deemedAmount').value || 0) || 0;
     // Solar Charges = sum of all amounts
     const solarCharges = genAmount + adjAmount + deemedAmount;
     // Electricity Duty and GST are 0 for now
@@ -102,6 +142,7 @@ function updateAll() {
     updateTableAmounts();
     updateBillSummary();
     updateRightAmounts();
+    updatePrintFields();
 }
 
 // Add event listeners for all relevant fields
@@ -252,4 +293,4 @@ if (generateBtn) {
         window.print();
         setTimeout(() => document.body.classList.remove('print-bill'), 1000);
     });
-} 
+}
