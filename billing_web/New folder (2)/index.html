@@ -15,20 +15,20 @@
                         <input type="text" id="companyTitle" class="company-title-input underline" value="FPel Solar Edge Private Limited">
                     </div>
                     <div class="company-section">
-                        <div class="company-name-block"><input type="text" id="companyName" class="input-bold company-name-main no-border" placeholder="Company Name" value="M/s. Mikado Realtors Pvt. Ltd."></div>
-                        <div class="offtaker-block"><span class="offtaker-label">Offtaker code</span> - <input type="text" id="offtakerCode" class="offtaker-code" value="SPC-4118-0013" style="border:none; background:transparent; width:120px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                        <div class="company-name-block"><input type="text" id="companyName" class="company-name-main no-border" placeholder="Company Name" value="M/s. Mikado Realtors Pvt. Ltd."></div>
+                        <div class="offtaker-block"><span class="offtaker-label">Offtaker code</span> - <input type="text" id="offtakerCode" value="SPC-4118-0013" style="border:none; background:transparent; width:120px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
                         <div class="address-section">
                             <div class="address-block">
                                 <div class="address-label billto-label">Bill To:</div>
-                                <div class="address-value"><textarea id="billTo" class="input-address address-textarea" rows="2" placeholder="Bill To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea></div>
+                                <div class="address-value"><textarea id="billTo" class="address-textarea" rows="2" placeholder="Bill To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea></div>
                             </div>
                             <div class="address-block">
                                 <div class="address-label shipto-label">Ship To:</div>
-                                <div class="address-value"><textarea id="shipTo" class="input-address address-textarea" rows="2" placeholder="Ship To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea></div>
+                                <div class="address-value"><textarea id="shipTo" class="address-textarea" rows="2" placeholder="Ship To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea></div>
                             </div>
                             <div class="gstin-capacity-row">
-                                <div class="gstin-block"><span class="gstin-label">GSTIN:</span> <input type="text" id="gstin" class="gstin-input" value="06AAECM7429E1ZJ" style="border:none; background:transparent; width:160px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
-                                <div class="capacity-block"><span class="capacity-label">Solar Plant Total Capacity (kW):</span> <input type="number" id="plantCapacity" class="capacity-input" value="328.09" style="border:none; background:transparent; width:80px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                                <div class="gstin-block"><span class="gstin-label">GSTIN:</span> <input type="text" id="gstin" value="06AAECM7429E1ZJ" style="border:none; background:transparent; width:160px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                                <div class="capacity-block"><span class="capacity-label">Solar Plant Total Capacity (kW):</span> <input type="number" id="plantCapacity" value="328.09" style="border:none; background:transparent; width:80px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
                             </div>
                         </div>
                     </div>
@@ -68,21 +68,21 @@
                         <tbody>
                             <tr>
                                 <td>Generation</td>
-                                <td><span id="genUnits">0.00</span></td>
+                                <td><input type="number" id="genUnits" class="table-input" value="0.00" step="0.01"></td>
                                 <td><input type="number" id="genTariff" class="table-input" value="5.590"></td>
-                                <td><span id="genAmount" class="table-total-unit">0.00</span></td>
+                                <td><span id="genAmount">0.00</span></td>
                             </tr>
                             <tr>
                                 <td>Adjustment(kWh)</td>
                                 <td><input type="number" id="adjUnits" class="table-input" value="0.00"></td>
                                 <td><input type="number" id="adjTariff" class="table-input" value="5.590"></td>
-                                <td><span id="adjAmount" class="table-total-unit">0.00</span></td>
+                                <td><span id="adjAmount">0.00</span></td>
                             </tr>
                             <tr>
                                 <td>Deemed Generation</td>
                                 <td><input type="number" id="deemedUnits" class="table-input" value="0.00"></td>
                                 <td><input type="number" id="deemedTariff" class="table-input" value="5.590"></td>
-                                <td><span id="deemedAmount" class="table-total-unit">0.00</span></td>
+                                <td><span id="deemedAmount">0.00</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -236,7 +236,7 @@
                     </thead>
                     <tbody id="meterTableBody">
                         <tr>
-                            <td><input type="text" class="meter-input meter-name" value="Device-1"></td>
+                            <td><input type="text" class="meter-input" value="Device-1"></td>
                             <td><input type="number" class="meter-input meter-start" value="0" step="0.0001"></td>
                             <td><input type="number" class="meter-input meter-end" value="0" step="0.0001"></td>
                             <td><input type="number" class="meter-input meter-diff" value="0" step="0.0001" readonly></td>

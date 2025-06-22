@@ -52,10 +52,11 @@ function updateTableAmounts() {
         { units: 'deemedUnits', tariff: 'deemedTariff', amount: 'deemedAmount' }
     ];
     rows.forEach(row => {
-        const units = parseFloat(document.getElementById(row.units).value) || 0;
+        const unitsEl = document.getElementById(row.units);
+        const units = parseFloat(unitsEl.value) || 0;
         const tariff = parseFloat(document.getElementById(row.tariff).value) || 0;
         const amount = units * tariff;
-        document.getElementById(row.amount).value = amount.toFixed(2);
+        document.getElementById(row.amount).textContent = formatNumber(amount);
     });
 }
 
@@ -176,9 +177,9 @@ function updateSummaryFromMeter(totalUnits) {
     document.getElementById('kwhPerDay').textContent = kwhPerDay.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     const kwhPerKwpDay = plantCapacity ? (kwhPerDay / plantCapacity) : 0;
     document.getElementById('kwhPerKwpDay').textContent = kwhPerKwpDay.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-    const genUnitsSpan = document.getElementById('genUnits');
-    if (genUnitsSpan) {
-        genUnitsSpan.textContent = totalUnits.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    const genUnitsInput = document.getElementById('genUnits');
+    if (genUnitsInput) {
+        genUnitsInput.value = totalUnits.toFixed(2);
     }
     const genTariff = parseFloat(document.getElementById('genTariff').value) || 0;
     const genAmount = totalUnits * genTariff;
@@ -209,7 +210,7 @@ function addMeterRow() {
     const tbody = document.getElementById('meterTableBody');
     const row = document.createElement('tr');
     row.innerHTML = `
-        <td><input type="text" class="meter-input meter-name" value="Device-${tbody.children.length + 1}"></td>
+        <td><input type="text" class="meter-input" value="Device-${tbody.children.length + 1}"></td>
         <td><input type="number" class="meter-input meter-start" value="0" step="0.0001"></td>
         <td><input type="number" class="meter-input meter-end" value="0" step="0.0001"></td>
         <td><input type="number" class="meter-input meter-diff" value="0" step="0.0001" readonly></td>
@@ -284,6 +285,34 @@ if (latePenaltyChargesEl) {
     observer.observe(latePenaltyChargesEl, { childList: true });
 }
 updateCurrentInvoiceAmount();
+
+// --- Auto-formatting for input fields ---
+function formatInputField(input) {
+    if (!input) return;
+    const value = parseFloat(input.value);
+
+    // Use different precision for tariffs vs units
+    const isTariff = input.id.toLowerCase().includes('tariff');
+    const precision = isTariff ? 3 : 2;
+    const defaultValue = (0).toFixed(precision);
+
+    if (isNaN(value)) {
+        input.value = defaultValue;
+        return;
+    }
+    input.value = value.toFixed(precision);
+}
+
+const idsToFormat = ['genUnits', 'genTariff', 'adjUnits', 'adjTariff', 'deemedUnits', 'deemedTariff'];
+idsToFormat.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+        // Format on blur
+        el.addEventListener('blur', () => formatInputField(el));
+        // Format on initial load to ensure consistency
+        formatInputField(el);
+    }
+});
 
 // Print functionality for Generate Bill button
 const generateBtn = document.getElementById('generateBillBtn');

@@ -12,6 +12,13 @@ body {
     background: #f4f4f4;
 }
 
+/* Global focus style for all editable fields */
+input:focus,
+textarea:focus {
+    outline: none; /* Remove default browser outline */
+    box-shadow: 0 0 0 2px #4dabf7; /* A friendly blue box on focus */
+}
+
 /* =============================
    2. Layout Containers
    ============================= */
@@ -41,7 +48,7 @@ body {
     flex: 1 1 0;
     min-width: 120px;
     max-width: 260px;
-    padding: 8px 8px 8px 8px;
+    padding: 24px;
     box-sizing: border-box;
     border-radius: 2px;
     margin-top: 8px;
@@ -51,7 +58,7 @@ body {
     flex-direction: column;
     height: 100%;
     font-size: 0.85rem;
-    background: #d3d5d3;
+    background: #f0f2f5;
 }
 .page-box {
     background: #fff;
@@ -137,10 +144,19 @@ body {
 .offtaker-label {
     font-weight: bold;
 }
+.gstin-capacity-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0.1em;
+}
 .gstin-block, .capacity-block {
+    font-size: 1.05rem;
+    margin-top: 0.05em;
+    margin-bottom: 0.05em;
+}
+.gstin-label, .capacity-label {
     font-weight: bold;
-    font-size: 1rem;
-    margin-top: 8px;
 }
 .address-section {
     margin-top: 0;
@@ -156,38 +172,6 @@ body {
 .address-label {
     font-weight: bold;
     margin-bottom: 2px;
-}
-.input-bold {
-    font-weight: bold;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 6px 8px;
-    margin-bottom: 12px;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 4px;
-}
-.input-address {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 6px 8px;
-    font-size: 1rem;
-    margin-top: 4px;
-    margin-bottom: 12px;
-    resize: vertical;
-    font-family: inherit;
-    box-sizing: border-box;
-}
-.gstin-capacity-row {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 0.1em;
-}
-.gstin-label, .capacity-label {
-    font-weight: bold;
 }
 
 /* =============================
@@ -279,23 +263,6 @@ body {
     text-align: right;
     font-size: 0.85rem;
 }
-.bill-summary {
-    margin-top: 8px;
-    margin-bottom: 8px;
-}
-.bill-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1rem;
-    padding: 2px 0;
-}
-.total-row {
-    background: #c8f6fa;
-    font-weight: bold;
-    padding: 4px 0;
-    border-top: 2px solid #222;
-    border-bottom: 2px solid #222;
-}
 .remarks-block {
     margin-top: 12px;
     display: flex;
@@ -347,9 +314,9 @@ body {
 }
 
 .bill-supply-box {
-    background: #e3e5e2;
+    background: transparent;
     border-radius: 2px;
-    padding: 18px 18px 18px 8px;
+    padding: 0;
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
@@ -370,7 +337,7 @@ body {
 .bill-overview-details {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 8px;
     margin-bottom: 10px;
 }
 
@@ -421,7 +388,7 @@ body {
     font-weight: bold;
     font-size: 1.08rem;
     margin-bottom: 8px;
-    margin-top: 18px;
+    margin-top: 24px;
     letter-spacing: 0.2px;
 }
 
@@ -430,11 +397,12 @@ body {
 }
 
 .bill-amount-section {
-    margin-top: 28px;
+    margin-top: 32px;
     font-size: 1rem;
-    background: #e3e5e2;
-    padding: 0 0 8px 0;
+    background: transparent;
+    padding: 0;
     border-bottom: 3px solid #222;
+    text-align: center;
 }
 
 .amount-label {
@@ -442,17 +410,17 @@ body {
     margin-bottom: 0;
     margin-top: 0;
     padding-top: 10px;
-    padding-left: 8px;
+    padding-left: 0;
 }
 
 .amount-invoice-bg {
     background: #aef0f4;
     padding: 14px 0 10px 0;
-    text-align: right;
+    text-align: center;
     margin-bottom: 0;
     margin-top: 8px;
     border-radius: 2px;
-    padding-right: 18px;
+    padding-right: 0;
 }
 
 .amount-invoice {
@@ -465,7 +433,7 @@ body {
     font-size: 1.05rem;
     margin: 10px 0 0 0;
     font-weight: 500;
-    padding-left: 8px;
+    padding-left: 0;
 }
 
 .amount-block-bg {
@@ -480,7 +448,7 @@ body {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 2px;
-    padding-left: 8px;
+    padding-left: 0;
     padding-top: 8px;
 }
 
@@ -488,30 +456,30 @@ body {
     background: #fff;
     padding: 12px 0 10px 0;
     border-radius: 2px;
-    text-align: right;
+    text-align: center;
     margin: 0 0 0 0;
-    padding-right: 18px;
+    padding-right: 0;
 }
 
 .amount-block-value {
     font-size: 1.3rem;
     font-weight: bold;
-    text-align: right;
+    text-align: center;
     margin-top: 0;
 }
 
 .amount-plus {
     font-size: 1.5rem;
     font-weight: bold;
-    text-align: left;
-    margin: 6px 0 6px 0;
-    padding-left: 10px;
+    text-align: center;
+    margin: 16px 0 16px 0;
+    padding-left: 0;
 }
 
 .payment-details-section {
-    background: #e3e5e2;
-    margin-top: 8px;
-    padding: 10px 10px 14px 10px;
+    background: transparent;
+    margin-top: 24px;
+    padding: 0;
     border-radius: 2px;
     width: 100%;
     box-sizing: border-box;
@@ -528,7 +496,7 @@ body {
 }
 
 .payment-row {
-    margin-bottom: 7px;
+    margin-bottom: 10px;
     font-size: 0.82rem;
     display: flex;
     align-items: flex-start;
@@ -668,22 +636,6 @@ body {
 
 .footer-bold {
     font-weight: bold;
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: calc(40vw + 32vw + 36px);
-    max-width: 1100px;
-    min-width: 700px;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.main-content-center {
-    display: none;
 }
 
 .payment-value {
@@ -1099,7 +1051,6 @@ body {
     font-family: inherit;
 }
 .gstin-block, .capacity-block {
-    font-weight: bold;
     font-size: 1.05rem;
     margin-top: 0.05em;
     margin-bottom: 0.05em;
