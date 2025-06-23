@@ -52,13 +52,13 @@ textarea:focus {
     box-sizing: border-box;
     border-radius: 2px;
     margin-top: 8px;
-    margin-left: 0;
+    margin-right: 12px;
     float: none;
     display: flex;
     flex-direction: column;
     height: 100%;
     font-size: 0.85rem;
-    background: #f0f2f5;
+    background: #c5c6c7;
 }
 .page-box {
     background: #fff;
@@ -238,23 +238,25 @@ textarea:focus {
 .bill-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 8px;
+    margin-bottom: 0;
     background: #fff;
 }
 .bill-table th,
 .bill-table td {
-    border: 1px solid #888;
-    padding: 4px 6px;
-    text-align: center;
-    font-size: 0.85rem;
-}
-.bill-table th:first-child,
-.bill-table td:first-child {
-    text-align: left;
+    border: none;
+    padding: 6px 8px;
+    text-align: right;
+    font-size: 0.9rem;
+    vertical-align: middle;
 }
 .bill-table th {
-    background: #eee;
+    background: #c5c6c7;
     font-weight: bold;
+    border-bottom: 2px solid #222;
+}
+.bill-table td:first-child,
+.bill-table th:first-child {
+    text-align: left;
 }
 .table-input {
     width: 90px;
@@ -414,7 +416,7 @@ textarea:focus {
 }
 
 .amount-invoice-bg {
-    background: #aef0f4;
+    background: #cff4fc;
     padding: 14px 0 10px 0;
     text-align: center;
     margin-bottom: 0;
@@ -702,15 +704,15 @@ textarea:focus {
 }
 
 .next-right-section {
-    background: #d3d5d3;
+    background: #c5c6c7;
     width: 210px;
     min-width: 180px;
     max-width: 230px;
-    padding: 8px 8px 8px 8px;
+    padding: 16px;
     box-sizing: border-box;
     border-radius: 2px;
     margin-top: 8px;
-    margin-left: 0;
+    margin-right: 12px;
     float: none;
     display: flex;
     flex-direction: column;
@@ -934,23 +936,21 @@ textarea:focus {
     }
 
     body.print-bill .left-portion,
-    body.print-bill .right-portion,
-    body.print-bill .next-left-section,
-    body.print-bill .next-right-section {
-        padding: 0 !important;
+    body.print-bill .next-left-section {
+        padding: 0 16px 0 0 !important;
         margin: 0 !important;
         background: none !important;
         box-shadow: none !important;
-        padding-right: 16px;
     }
 
     body.print-bill .right-portion,
     body.print-bill .next-right-section {
-        background: #d3d5d3 !important;
-        margin-top: 16px !important;
+        padding: 12px 12px 12px 4px !important;
+        margin: 16px 0 0 0 !important;
+        background: #c5c6c7 !important;
+        box-shadow: none !important;
         text-align: justify !important;
         hyphens: auto !important;
-        padding-left: 8px !important;
     }
 
     body.print-bill .contact-info-box {
@@ -965,6 +965,30 @@ textarea:focus {
         font-size: 1.2rem !important;
         padding: 0 !important;
         margin: 0 !important;
+    }
+
+    .bill-supply-details {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0 !important;
+    }
+    .bill-supply-details div {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0 !important;
+        margin-bottom: 8px !important;
+        padding: 0 !important;
+    }
+    .bill-supply-label {
+        min-width: 120px;
+        text-align: left;
+    }
+    .right-value {
+        text-align: left;
+        flex: 1;
+        margin-left: 0;
     }
 }
 
@@ -1008,19 +1032,27 @@ textarea:focus {
 .bill-summary-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 0.5em;
+    margin-top: 0;
     margin-bottom: 0.5em;
 }
 .bill-summary-label {
     text-align: left;
-    padding: 4px 0 4px 2px;
+    padding: 6px 0 6px 2px;
     font-size: 1rem;
+    font-weight: bold;
 }
 .bill-summary-value {
     text-align: right;
-    padding: 4px 8px 4px 0;
+    padding: 6px 8px 6px 0;
     font-size: 1rem;
+    font-weight: bold;
 }
+
+.bill-summary-table tr:first-child .bill-summary-label,
+.bill-summary-table tr:first-child .bill-summary-value {
+    border-top: 2px solid #222;
+}
+
 .bill-summary-total-row .bill-summary-label,
 .bill-summary-total-row .bill-summary-value {
     font-weight: bold;

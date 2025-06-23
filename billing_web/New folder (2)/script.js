@@ -172,7 +172,7 @@ updateAll();
 function updateSummaryFromMeter(totalUnits) {
     document.getElementById('billedUnits').textContent = totalUnits.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     const days = parseInt(document.getElementById('days').textContent) || 1;
-    const plantCapacity = 328.09;
+    const plantCapacity = parseFloat(document.getElementById('plantCapacity').value) || 0;
     const kwhPerDay = totalUnits / days;
     document.getElementById('kwhPerDay').textContent = kwhPerDay.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     const kwhPerKwpDay = plantCapacity ? (kwhPerDay / plantCapacity) : 0;
@@ -238,6 +238,13 @@ document.getElementById('removeDeviceBtn').addEventListener('click', function() 
         updateMeterTable();
     }
 });
+
+// Add event listener to re-calculate summary when capacity changes
+const plantCapacityInput = document.getElementById('plantCapacity');
+if (plantCapacityInput) {
+    plantCapacityInput.addEventListener('input', updateMeterTable);
+}
+
 updateMeterTable();
 // --- END METER READINGS DYNAMIC TABLE ---
 
