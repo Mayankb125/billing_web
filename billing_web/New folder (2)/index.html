@@ -12,7 +12,7 @@
             <div class="left-portion">
                 <div class="company-header">
                     <div class="company-title-main">
-                        <input type="text" id="companyTitle" class="company-title-input underline" value="FPel Solar Edge Private Limited">
+                        <span class="company-title-input underline">Enercore New Energy Private Limited</span>
                     </div>
                     <div class="company-section">
                         <div class="company-name-block"><input type="text" id="companyName" class="company-name-main no-border" placeholder="Company Name" value="M/s. Mikado Realtors Pvt. Ltd."></div>
@@ -37,19 +37,19 @@
                     <div class="summary-title">SUMMARY OF CONSUMPTION</div>
                     <div class="summary-cards">
                         <div class="summary-card">
-                            <span id="billedUnits">0.00</span> <br>
+                            <span class="summary-value-bold" id="billedUnits">0.00</span> <br>
                             <span class="summary-label">Total Billed Units</span>
                         </div>
                         <div class="summary-card">
-                            <span id="days">31</span> <br>
+                            <span class="summary-value-bold" id="days">31</span> <br>
                             <span class="summary-label">Days</span>
                         </div>
                         <div class="summary-card">
-                            <span id="kwhPerDay">0.00</span> <br>
+                            <span class="summary-value-bold" id="kwhPerDay">0.00</span> <br>
                             <span class="summary-label">kWh/Day</span>
                         </div>
                         <div class="summary-card">
-                            <span id="kwhPerKwpDay">0.00</span> <br>
+                            <span class="summary-value-bold" id="kwhPerKwpDay">0.00</span> <br>
                             <span class="summary-label">kWh/kWp/Day</span>
                         </div>
                     </div>
@@ -118,7 +118,14 @@
             <div class="right-portion">
                 <!-- Right portion: Bill of Supply and Overview -->
                 <div class="bill-supply-box">
-                    <div class="bill-supply-title">SOLAR BILL OF SUPPLY<br><span class="bill-supply-month">- May 2025</span></div>
+                    <div class="bill-supply-title">
+                        <span class="print-hide">
+                            SOLAR BILL OF SUPPLY -
+                            <input type="text" id="supplyMonth" class="supply-title-input" value="May" style="width: 50px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;" maxlength="9">
+                            <input type="number" id="supplyYear" class="supply-title-input" value="2025" style="width: 60px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;" min="2000" max="2099">
+                        </span>
+                        <span class="print-only" id="supplyTitlePrint" style="display:none;"></span>
+                    </div>
                     <div class="bill-supply-details">
     <div>
         <span class="bill-supply-label">Bill No:</span>
@@ -278,5 +285,16 @@
     </div>
     <button id="generateBillBtn" class="generate-bill-btn">Generate Bill (PDF)</button>
     <script src="script.js"></script>
+    <script>
+    // Update print heading on input change
+    function updateSupplyTitlePrint() {
+        var month = document.getElementById('supplyMonth').value;
+        var year = document.getElementById('supplyYear').value;
+        document.getElementById('supplyTitlePrint').innerHTML = '<b>SOLAR BILL OF SUPPLY</b><br><span style="font-weight:bold; margin-left: 10px; font-size:1.1rem;">- ' + month + ' ' + year + '</span>';
+    }
+    document.getElementById('supplyMonth').addEventListener('input', updateSupplyTitlePrint);
+    document.getElementById('supplyYear').addEventListener('input', updateSupplyTitlePrint);
+    updateSupplyTitlePrint();
+    </script>
 </body>
 </html>

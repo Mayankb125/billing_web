@@ -5,6 +5,7 @@ html,
 body {
     font-size: 0.85rem;
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,8 +16,10 @@ body {
 /* Global focus style for all editable fields */
 input:focus,
 textarea:focus {
-    outline: none; /* Remove default browser outline */
-    box-shadow: 0 0 0 2px #4dabf7; /* A friendly blue box on focus */
+    outline: none;
+    /* Remove default browser outline */
+    box-shadow: 0 0 0 2px #4dabf7;
+    /* A friendly blue box on focus */
 }
 
 /* =============================
@@ -34,6 +37,7 @@ textarea:focus {
     padding: 0;
     box-sizing: border-box;
 }
+
 .left-portion {
     flex: 2 1 0;
     min-width: 0;
@@ -44,6 +48,7 @@ textarea:focus {
     justify-content: flex-start;
     font-size: 0.85rem;
 }
+
 .right-portion {
     flex: 1 1 0;
     min-width: 120px;
@@ -60,6 +65,7 @@ textarea:focus {
     font-size: 0.85rem;
     background: #c5c6c7;
 }
+
 .page-box {
     background: #fff;
     border: 1.5px solid #222;
@@ -76,6 +82,7 @@ textarea:focus {
     flex-direction: column;
     align-items: center;
 }
+
 .content-row {
     display: flex;
     flex-direction: row;
@@ -94,12 +101,14 @@ textarea:focus {
     padding: 0 0 0 0;
     background: #fff;
 }
+
 .company-title-main {
     text-align: center;
     margin-bottom: 32px;
 }
+
 .company-title-input.underline {
-    font-size: 2.2rem;
+    font-size: 1.7rem !important;
     font-weight: bold;
     width: 90%;
     border: none;
@@ -111,7 +120,11 @@ textarea:focus {
     outline: none;
     text-align: center;
     display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 .company-section {
     margin: 0;
     max-width: 600px;
@@ -119,6 +132,7 @@ textarea:focus {
     flex-direction: column;
     gap: 0.2em;
 }
+
 .company-name-block {
     font-weight: bold;
     font-size: 1.35rem;
@@ -126,6 +140,7 @@ textarea:focus {
     padding-bottom: 0;
     margin-top: 8px;
 }
+
 .company-name-main {
     font-weight: bold;
     font-size: 1.2rem;
@@ -137,27 +152,35 @@ textarea:focus {
     margin: 0;
     outline: none;
 }
+
 .offtaker-block {
     font-size: 1rem;
     margin-bottom: 6px;
 }
+
 .offtaker-label {
     font-weight: bold;
 }
+
 .gstin-capacity-row {
     display: flex;
     flex-direction: column;
     gap: 0;
     margin-top: 0.1em;
 }
-.gstin-block, .capacity-block {
+
+.gstin-block,
+.capacity-block {
     font-size: 1.05rem;
     margin-top: 0.05em;
     margin-bottom: 0.05em;
 }
-.gstin-label, .capacity-label {
+
+.gstin-label,
+.capacity-label {
     font-weight: bold;
 }
+
 .address-section {
     margin-top: 0;
     margin-bottom: 0;
@@ -165,10 +188,12 @@ textarea:focus {
     flex-direction: column;
     gap: 0.1em;
 }
+
 .address-block {
     margin-bottom: 25px;
     padding-bottom: 0;
 }
+
 .address-label {
     font-weight: bold;
     margin-bottom: 2px;
@@ -181,11 +206,14 @@ textarea:focus {
     margin-top: 32px;
     margin-bottom: 16px;
 }
+
 .summary-title {
     font-weight: bold;
-    font-size: 0.92rem;
+    font-size: 1.4rem;
     margin-bottom: 8px;
+    letter-spacing: 0.5px;
 }
+
 .summary-cards {
     display: flex;
     background: #c8f6fa;
@@ -194,11 +222,13 @@ textarea:focus {
     justify-content: space-between;
     margin-bottom: 16px;
 }
+
 .summary-card {
     flex: 1;
     text-align: center;
     position: relative;
 }
+
 .summary-card:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -210,6 +240,7 @@ textarea:focus {
     opacity: 0.7;
     border-radius: 2px;
 }
+
 .summary-input {
     width: 80%;
     text-align: center;
@@ -219,9 +250,15 @@ textarea:focus {
     font-weight: bold;
     color: #222;
 }
+
 .summary-label {
     font-size: 0.85rem;
     color: #222;
+}
+
+.summary-value-bold {
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 /* =============================
@@ -230,47 +267,55 @@ textarea:focus {
 .bill-section {
     margin-top: 16px;
 }
+
 .bill-title {
     font-weight: bold;
     font-size: 0.92rem;
     margin-bottom: 8px;
 }
+
 .bill-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 0;
     background: #fff;
 }
+
 .bill-table th,
 .bill-table td {
     border: none;
     padding: 6px 8px;
     text-align: right;
-    font-size: 0.9rem;
+    font-size: 1rem;
     vertical-align: middle;
 }
+
 .bill-table th {
     background: #c5c6c7;
     font-weight: bold;
     border-bottom: 2px solid #222;
 }
+
 .bill-table td:first-child,
 .bill-table th:first-child {
     text-align: left;
 }
+
 .table-input {
     width: 90px;
     border: none;
     background: transparent;
     text-align: right;
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
+
 .remarks-block {
     margin-top: 12px;
     display: flex;
     align-items: center;
     gap: 8px;
 }
+
 .remarks-input {
     flex: 1;
     border: 1px solid #ccc;
@@ -278,6 +323,7 @@ textarea:focus {
     padding: 4px 4px;
     font-size: 0.85rem;
 }
+
 .contact-info-box {
     background: #d3d3d3;
     margin-top: 48px;
@@ -289,6 +335,7 @@ textarea:focus {
     width: 100%;
     box-sizing: border-box;
 }
+
 .contact-email {
     font-weight: bold;
     font-size: 1.1rem;
@@ -308,11 +355,19 @@ textarea:focus {
 }
 
 @media screen {
-    .right-value { display: none; }
+    .right-value {
+        display: none;
+    }
 }
+
 @media print {
-    .right-input { display: none !important; }
-    .right-value { display: inline !important; }
+    .right-input {
+        display: none !important;
+    }
+
+    .right-value {
+        display: inline !important;
+    }
 }
 
 .bill-supply-box {
@@ -355,16 +410,20 @@ textarea:focus {
     align-items: center;
     gap: 10px;
     margin-bottom: 0;
-    padding:  0;
+    padding: 0;
 }
 
 .bill-supply-label {
     font-weight: bold;
     min-width: 80px;
-    display: inline-block;
-    font-size: 1rem;
-    color: #222;
-    letter-spacing: 0.2px;
+    text-align: left;
+}
+
+.right-value {
+    text-align: left;
+    flex: 1;
+    margin-left: 4px;
+    white-space: nowrap;
 }
 
 .late-penalty-row {
@@ -556,13 +615,31 @@ textarea:focus {
 
 /* Show/hide logic for screen and print */
 @media screen {
-    .payment-input, .payment-input-multiline { display: inline-block; }
-    .payment-value { display: none; }
+
+    .payment-input,
+    .payment-input-multiline {
+        display: inline-block;
+    }
+
+    .payment-value {
+        display: none;
+    }
 }
+
 @media print {
-    .payment-input, .payment-input-multiline { display: none !important; }
-    .payment-value { display: inline !important; }
-    .payment-label { font-weight: bold !important; }
+
+    .payment-input,
+    .payment-input-multiline {
+        display: none !important;
+    }
+
+    .payment-value {
+        display: inline !important;
+    }
+
+    .payment-label {
+        font-weight: bold !important;
+    }
 }
 
 .payment-signatory-label {
@@ -588,7 +665,7 @@ textarea:focus {
 
 .footer-section {
     width: 100%;
-    margin-top: 16px;
+    margin-top: 0 !important;
     padding: 0;
     box-sizing: border-box;
     display: flex;
@@ -626,6 +703,8 @@ textarea:focus {
     line-height: 1.5;
     min-width: 260px;
     max-width: 340px;
+    margin-left: 16px !important;
+    margin-right: 0 !important;
 }
 
 .footer-right {
@@ -866,6 +945,7 @@ textarea:focus {
 }
 
 @media print {
+
     html,
     body {
         -webkit-print-color-adjust: exact !important;
@@ -876,16 +956,23 @@ textarea:focus {
     }
 
     @page {
-        margin: 0;
         size: A4;
+        margin: 0;
     }
 
     .payment-details-section {
         margin-bottom: 48px !important;
     }
 
-    .footer-section {
-        page-break-after: always !important;
+    .footer-section,
+    .footer-inner {
+        margin-top: 100px !important;
+        padding-top: 0 !important;
+    }
+
+    .footer-divider {
+        margin-top: 155px !important;
+        padding-top: 0 !important;
     }
 
     .next-header {
@@ -909,15 +996,15 @@ textarea:focus {
     }
 
     body.print-bill .page-box {
-        box-shadow: none !important;
         border: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        max-width: 100vw !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        box-sizing: border-box;
+        width: auto !important;
         min-width: 0 !important;
-        width: 100vw !important;
-        min-height: 0 !important;
-        background: #fff !important;
+        max-width: 100vw !important;
     }
 
     body.print-bill .footer-section,
@@ -931,8 +1018,7 @@ textarea:focus {
 
     body.print-bill .content-row,
     body.print-bill .next-content-row {
-        gap: 16px !important;
-        padding: 0 !important;
+        gap: 0 !important;
     }
 
     body.print-bill .left-portion,
@@ -946,7 +1032,7 @@ textarea:focus {
     body.print-bill .right-portion,
     body.print-bill .next-right-section {
         padding: 12px 12px 12px 4px !important;
-        margin: 16px 0 0 0 !important;
+        margin: 0 !important;
         background: #c5c6c7 !important;
         box-shadow: none !important;
         text-align: justify !important;
@@ -972,6 +1058,7 @@ textarea:focus {
         flex-direction: column;
         gap: 0 !important;
     }
+
     .bill-supply-details div {
         display: flex !important;
         flex-direction: row;
@@ -981,24 +1068,33 @@ textarea:focus {
         margin-bottom: 8px !important;
         padding: 0 !important;
     }
+
     .bill-supply-label {
         min-width: 120px;
         text-align: left;
     }
+
     .right-value {
         text-align: left;
         flex: 1;
-        margin-left: 0;
+        margin-left: -10px !important;
+    }
+
+    .bill-supply-box {
+        padding-left: 8px !important;
+        padding-right: 0px !important;
     }
 }
 
 .footer-section,
-.footer-inner {
-    max-width: 794px;
-    min-width: 794px;
-    width: 794px;
-    margin: 0 auto;
-    box-sizing: border-box;
+.footer-inner,
+.page-box {
+    box-shadow: none !important;
+}
+
+.footer-section {
+    page-break-inside: avoid !important;
+    /* Remove any page-break-after rules */
 }
 
 .bill-supply-title {
@@ -1035,12 +1131,14 @@ textarea:focus {
     margin-top: 0;
     margin-bottom: 0.5em;
 }
+
 .bill-summary-label {
     text-align: left;
     padding: 6px 0 6px 2px;
     font-size: 1rem;
     font-weight: bold;
 }
+
 .bill-summary-value {
     text-align: right;
     padding: 6px 8px 6px 0;
@@ -1061,15 +1159,18 @@ textarea:focus {
     border-bottom: 2px solid #222;
 }
 
-.billto-label, .shipto-label {
+.billto-label,
+.shipto-label {
     font-weight: bold;
     font-size: 1.08rem;
     margin-bottom: 0;
     margin-top: 0.15em;
 }
+
 .address-value {
     margin-left: 0;
 }
+
 .address-textarea {
     width: 100%;
     min-height: 2em;
@@ -1082,12 +1183,16 @@ textarea:focus {
     margin: 0;
     font-family: inherit;
 }
-.gstin-block, .capacity-block {
+
+.gstin-block,
+.capacity-block {
     font-size: 1.05rem;
     margin-top: 0.05em;
     margin-bottom: 0.05em;
 }
-.gstin-label, .capacity-label {
+
+.gstin-label,
+.capacity-label {
     font-weight: bold;
 }
 
@@ -1098,10 +1203,65 @@ textarea:focus {
 }
 
 @media print {
+
     .footer-section,
     .footer-inner {
         min-width: 0 !important;
         max-width: 100vw !important;
         width: 100vw !important;
+    }
+}
+
+.bill-title {
+    font-weight: bold !important;
+    font-size: 1.3rem !important;
+}
+
+.footer-section,
+.footer-inner {
+    page-break-after: auto !important;
+}
+
+.page-box {
+    min-height: 0 !important;
+    height: auto !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.bill-table td,
+.bill-summary-value,
+.table-input {
+    font-size: 1rem !important;
+}
+
+@media print {
+
+    .right-portion,
+    .next-right-section {
+        margin-top: 0 !important;
+    }
+}
+
+@media print {
+    .print-hide {
+        display: none !important;
+    }
+
+    .print-only {
+        display: inline !important;
+    }
+
+    .bill-supply-title,
+    .print-only {
+        font-weight: bold !important;
+        font-size: 1.2rem !important;
+        text-align: left !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+        background: #c5c6c7 !important;
+        width: 100% !important;
+        display: block !important;
     }
 }
