@@ -819,7 +819,7 @@ textarea:focus {
 .meter-table td {
     border: 1.5px solid #888;
     padding: 4px 6px;
-    text-align: right;
+    text-align: center;
     font-size: 0.85rem;
 }
 
@@ -1032,7 +1032,7 @@ textarea:focus {
     body.print-bill .right-portion,
     body.print-bill .next-right-section {
         padding: 12px 12px 12px 4px !important;
-        margin: 0 !important;
+        margin-top: 12px !important;
         background: #c5c6c7 !important;
         box-shadow: none !important;
         text-align: justify !important;
