@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Bill Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="page-box">
         <div class="content-row">
             <div class="left-portion">
                 <div class="company-header">
                     <div class="company-title-main">
-                        <span class="company-title-input underline">Enercore New Energy Private Limited</span>
+                        <span id="companyTitle" class="company-title-input underline">Enercore New Energy Private Limited</span>
                     </div>
                     <div class="company-section">
                         <!-- Start bordered customer info section -->
                         <div class="customer-info-bordered">
-                            <div class="company-name-block"><input type="text" id="companyName" class="company-name-main no-border" placeholder="Company Name" value="M/s. Mikado Realtors Pvt. Ltd."></div>
-                            <div class="offtaker-block"><span class="offtaker-label">Offtaker code</span> - <input type="text" id="offtakerCode" value="SPC-4118-0013" style="border:none; background:transparent; width:120px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                            <div class="company-name-block"><input type="text" id="companyName"
+                                    class="company-name-main no-border" placeholder="Company Name"
+                                    value="M/s. Mikado Realtors Pvt. Ltd."></div>
+                            <div class="offtaker-block"><span class="offtaker-label">Offtaker code</span> - <input
+                                    type="text" id="offtakerCode" value="SPC-4118-0013"
+                                    style="border:none; background:transparent; width:120px; font:inherit; color:inherit; padding:0; margin:0; outline:none;">
+                            </div>
                             <div class="address-block">
                                 <div class="address-label billto-label">Bill To:</div>
-                                <div class="address-value"><textarea id="billTo" class="address-textarea" rows="2" placeholder="Bill To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea></div>
-                                <div class="gstin-block"><span class="gstin-label">GSTIN:</span> <input type="text" id="gstin" value="06AAECM7429E1ZJ" style="border:none; background:transparent; width:160px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                                <div class="address-value"><textarea id="billTo" class="address-textarea" rows="2"
+                                        placeholder="Bill To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea>
+                                </div>
+                                <div class="gstin-block"><span class="gstin-label">GSTIN:</span> <input type="text"
+                                        id="gstin" value="06AAECM7429E1ZJ"
+                                        style="border:none; background:transparent; width:160px; font:inherit; color:inherit; padding:0; margin:0; outline:none;">
+                                </div>
                             </div>
                         </div>
                         <!-- End bordered customer info section -->
@@ -31,15 +43,23 @@
                             <div class="shipto-info-bordered">
                                 <div class="address-block">
                                     <div class="address-label shipto-label">Ship To:</div>
-                                    <div class="address-value"><textarea id="shipTo" class="address-textarea" rows="2" placeholder="Ship To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea></div>
+                                    <div class="address-value"><textarea id="shipTo" class="address-textarea" rows="2"
+                                            placeholder="Ship To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea>
+                                    </div>
                                 </div>
-                                <div class="gstin-block"><span class="gstin-label">GSTIN:</span> <input type="text" id="gstin" value="06AAECM7429E1ZJ" style="border:none; background:transparent; width:160px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                                <div class="gstin-block"><span class="gstin-label">GSTIN:</span> <input type="text"
+                                        id="gstin" value="06AAECM7429E1ZJ"
+                                        style="border:none; background:transparent; width:160px; font:inherit; color:inherit; padding:0; margin:0; outline:none;">
+                                </div>
                             </div>
                             <!-- End bordered ship to info section -->
                             <div class="gstin-capacity-row">
                                 <!-- Start bordered capacity info section -->
                                 <div class="capacity-info-bordered">
-                                    <div class="capacity-block"><span class="capacity-label">Solar Plant Total Capacity (kW):</span> <input type="number" id="plantCapacity" value="328.09" style="border:none; background:transparent; width:80px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                                    <div class="capacity-block"><span class="capacity-label">Solar Plant Total Capacity
+                                            (kW):</span> <input type="number" id="plantCapacity" value="328.09"
+                                            style="border:none; background:transparent; width:80px; font:inherit; color:inherit; padding:0; margin:0; outline:none;">
+                                    </div>
                                 </div>
                                 <!-- End bordered capacity info section -->
                             </div>
@@ -85,7 +105,8 @@
                         <tbody id="billTableBody">
                             <tr>
                                 <td>Generation</td>
-                                <td><input type="number" id="genUnits" class="table-input" value="0.00" step="0.01"></td>
+                                <td><input type="number" id="genUnits" class="table-input" value="0.00" step="0.01">
+                                </td>
                                 <td><input type="number" id="genTariff" class="table-input" value="5.590"></td>
                                 <td><span id="genAmount">0.00</span></td>
                                 <td><button type="button" class="remove-row-btn" title="Remove Row">×</button></td>
@@ -133,8 +154,10 @@
                                 <td class="bill-summary-value" id="gst">0.00</td>
                             </tr>
                             <tr class="bill-summary-total-row">
-                                <td class="bill-summary-label" style="font-weight:bold; background:#c8f6fa;">Total Charges</td>
-                                <td class="bill-summary-value" id="totalCharges" style="font-weight:bold; background:#c8f6fa;">0.00</td>
+                                <td class="bill-summary-label" style="font-weight:bold; background:#c8f6fa;">Total
+                                    Charges</td>
+                                <td class="bill-summary-value" id="totalCharges"
+                                    style="font-weight:bold; background:#c8f6fa;">0.00</td>
                             </tr>
                         </tbody>
                     </table>
@@ -155,8 +178,12 @@
                         <div class="bill-supply-title">
                             <span class="print-hide">
                                 SOLAR BILL OF SUPPLY -
-                                <input type="text" id="supplyMonth" class="supply-title-input" value="May" style="width: 50px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;" maxlength="9">
-                                <input type="number" id="supplyYear" class="supply-title-input" value="2025" style="width: 60px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;" min="2000" max="2099">
+                                <input type="text" id="supplyMonth" class="supply-title-input" value="May"
+                                    style="width: 50px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;"
+                                    maxlength="9">
+                                <input type="number" id="supplyYear" class="supply-title-input" value="2025"
+                                    style="width: 60px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;"
+                                    min="2000" max="2099">
                             </span>
                             <span class="print-only" id="supplyTitlePrint" style="display:none;"></span>
                         </div>
@@ -202,33 +229,41 @@
                         </div>
                         <div class="bill-amount-section">
                             <div class="amount-label">Current Invoice Amount</div>
-                            <div class="amount-invoice-bg"><span class="amount-invoice" id="currentInvoiceAmount">Rs 2,40,353</span></div>
+                            <div class="amount-invoice-bg"><span class="amount-invoice" id="currentInvoiceAmount">Rs
+                                    2,40,353</span></div>
                             <div class="amount-equals">Equals</div>
                             <div class="amount-block-bg">
                                 <div class="amount-block-label">Current Bill Amount</div>
-                                <div class="amount-block-white"><span class="amount-block-value" id="currentBillAmount">Rs 2,40,353.23</span></div>
+                                <div class="amount-block-white"><span class="amount-block-value"
+                                        id="currentBillAmount">Rs 2,40,353.23</span></div>
                             </div>
                             <div class="amount-plus">+</div>
                             <div class="amount-block-bg">
                                 <div class="amount-block-label">Late Penalty Charges</div>
-                                <div class="amount-block-white"><span class="amount-block-value" id="latePenaltyCharges">Rs 0.00</span></div>
+                                <div class="amount-block-white"><span class="amount-block-value"
+                                        id="latePenaltyCharges">Rs 0.00</span></div>
                             </div>
                         </div>
                         <div class="payment-details-section">
                             <div class="payment-title">PAYMENT DETAILS</div>
                             <div class="payment-row">
                                 <span class="payment-label">Bank Name:</span>
-                                <input type="text" class="payment-input" id="bankNameInput" value="Sun Renew. RT  -  Trust and Retention Account - 777705011335" oninput="document.getElementById('bankNamePrint').textContent=this.value;">
-                                <span class="payment-value" id="bankNamePrint" style="display:none;">Sun Renew. RT  -  Trust and Retention Account - 777705011335</span>
+                                <input type="text" class="payment-input" id="bankNameInput"
+                                    value="Sun Renew. RT  -  Trust and Retention Account - 777705011335"
+                                    oninput="document.getElementById('bankNamePrint').textContent=this.value;">
+                                <span class="payment-value" id="bankNamePrint" style="display:none;">Sun Renew. RT -
+                                    Trust and Retention Account - 777705011335</span>
                             </div>
                             <div class="payment-row">
                                 <span class="payment-label">A/C No:</span>
-                                <input type="text" class="payment-input" id="acNoInput" value="777705011335" oninput="document.getElementById('acNoPrint').textContent=this.value;">
+                                <input type="text" class="payment-input" id="acNoInput" value="777705011335"
+                                    oninput="document.getElementById('acNoPrint').textContent=this.value;">
                                 <span class="payment-value" id="acNoPrint" style="display:none;">777705011335</span>
                             </div>
                             <div class="payment-row">
                                 <span class="payment-label">IFSC Code:</span>
-                                <input type="text" class="payment-input" id="ifscInput" value="ICIC0000076" oninput="document.getElementById('ifscPrint').textContent=this.value;">
+                                <input type="text" class="payment-input" id="ifscInput" value="ICIC0000076"
+                                    oninput="document.getElementById('ifscPrint').textContent=this.value;">
                                 <span class="payment-value" id="ifscPrint" style="display:none;">ICIC0000076</span>
                             </div>
                             <div class="payment-row payment-signatory-label">Authorized Signatory:</div>
@@ -248,7 +283,8 @@
                         <span class="footer-bold">FPEL Solar Edge Private Limited</span>
                     </div>
                     <div class="footer-right">
-                        <span class="footer-bold">Registered Office:</span> Second Floor, Plot No. N46, House No. 4-9 -10, HMT Nagar, Nacharam, Hyderabad-500076, Telangana, India<br>
+                        <span class="footer-bold">Registered Office:</span> Second Floor, Plot No. N46, House No. 4-9
+                        -10, HMT Nagar, Nacharam, Hyderabad-500076, Telangana, India<br>
                         <span class="footer-bold">GSTIN:</span> 36AACCO1335K1ZI
                     </div>
                 </div>
@@ -281,10 +317,12 @@
                             <td><input type="text" class="meter-input" value="Device-1"></td>
                             <td><input type="number" class="meter-input meter-start" value="0" step="0.0001"></td>
                             <td><input type="number" class="meter-input meter-end" value="0" step="0.0001"></td>
-                            <td><input type="number" class="meter-input meter-diff" value="0" step="0.0001" readonly></td>
+                            <td><input type="number" class="meter-input meter-diff" value="0" step="0.0001" readonly>
+                            </td>
                             <td><input type="number" class="meter-input meter-mf" value="1.00" step="0.01"></td>
                             <td><input type="number" class="meter-input meter-adj" value="0.00" step="0.01"></td>
-                            <td><input type="number" class="meter-input meter-total" value="0.00" step="0.01" readonly></td>
+                            <td><input type="number" class="meter-input meter-total" value="0.00" step="0.01" readonly>
+                            </td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -301,35 +339,51 @@
                 <div class="faq-title">FAQs</div>
                 <div class="faq-item">
                     <div class="faq-q">Generation Units</div>
-                    <div class="faq-a">Energy generated by Solar Power Plant for the given invoice period as recorded by energy meters</div>
+                    <div class="faq-a">Energy generated by Solar Power Plant for the given invoice period as recorded by
+                        energy meters</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q">Adjustment Units</div>
-                    <div class="faq-a">Units derived from alternative record (for example Inverter generation record) for the specific instances where deviation was observed in generation unit due to technical issues in the metering panel</div>
+                    <div class="faq-a">Units derived from alternative record (for example Inverter generation record)
+                        for the specific instances where deviation was observed in generation unit due to technical
+                        issues in the metering panel</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q">Tariff</div>
-                    <div class="faq-a">Per unit agreed cost for billing for the invoice period as per Power Purchase Agreement</div>
+                    <div class="faq-a">Per unit agreed cost for billing for the invoice period as per Power Purchase
+                        Agreement</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q">Deemed Generation Units</div>
-                    <div class="faq-a">Potential Units generated for periods when Solar Power Plant could not operate due to reasons un-attributable to the Power producer including but not limited to power outage, curtailment of solar generation with DG running etc</div>
+                    <div class="faq-a">Potential Units generated for periods when Solar Power Plant could not operate
+                        due to reasons un-attributable to the Power producer including but not limited to power outage,
+                        curtailment of solar generation with DG running etc</div>
                 </div>
             </div>
         </div>
     </div>
     <button id="generateBillBtn" class="generate-bill-btn">Generate Bill (PDF)</button>
-    <script src="script.js"></script>
+    <button id="uploadBillBtn" class="upload-bill-btn">Upload Bill (PDF)</button>
+    <input type="file" id="pdfUpload" accept="application/pdf" style="display: none;">
+
+
+    <script src="script.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
     <script>
-    // Update print heading on input change
-    function updateSupplyTitlePrint() {
-        var month = document.getElementById('supplyMonth').value;
-        var year = document.getElementById('supplyYear').value;
-        document.getElementById('supplyTitlePrint').innerHTML = '<b>SOLAR BILL OF SUPPLY</b><br><span style="font-weight:bold; margin-left: 10px; font-size:1.1rem;">- ' + month + ' ' + year + '</span>';
-    }
-    document.getElementById('supplyMonth').addEventListener('input', updateSupplyTitlePrint);
-    document.getElementById('supplyYear').addEventListener('input', updateSupplyTitlePrint);
-    updateSupplyTitlePrint();
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    </script>
+    <script>
+        // Update print heading on input change
+        function updateSupplyTitlePrint() {
+            var month = document.getElementById('supplyMonth').value;
+            var year = document.getElementById('supplyYear').value;
+            document.getElementById('supplyTitlePrint').innerHTML = '<b>SOLAR BILL OF SUPPLY</b><br><span style="font-weight:bold; margin-left: 10px; font-size:1.1rem;">- ' + month + ' ' + year + '</span>';
+        }
+        document.getElementById('supplyMonth').addEventListener('input', updateSupplyTitlePrint);
+        document.getElementById('supplyYear').addEventListener('input', updateSupplyTitlePrint);
+        updateSupplyTitlePrint();
     </script>
 </body>
+
 </html>

@@ -1,10 +1,10 @@
 function formatNumber(num) {
-    return Number(num).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    return Number(num).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function formatDate(dateStr) {
     if (!dateStr) return '';
-    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const d = new Date(dateStr);
     if (isNaN(d)) return dateStr;
     return `${String(d.getDate()).padStart(2, '0')}-${months[d.getMonth()]}-${d.getFullYear()}`;
@@ -31,9 +31,9 @@ function updatePrintFields() {
 }
 
 // Attach listeners for print fields
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     updatePrintFields();
-    ['billNo','billDate','billStartDate','billEndDate','hsnCode','dueDate','latePenalty'].forEach(id => {
+    ['billNo', 'billDate', 'billStartDate', 'billEndDate', 'hsnCode', 'dueDate', 'latePenalty'].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
             el.addEventListener('input', updatePrintFields);
@@ -140,7 +140,7 @@ function updateRightAmounts() {
     const totalCharges = document.getElementById('totalCharges').textContent.replace(/,/g, '');
     // Remove decimals for invoice amount
     const invoiceAmount = Math.round(Number(totalCharges));
-    document.getElementById('currentInvoiceAmount').textContent = 'Rs ' + formatNumber(invoiceAmount).replace('.00','');
+    document.getElementById('currentInvoiceAmount').textContent = 'Rs ' + formatNumber(invoiceAmount).replace('.00', '');
     document.getElementById('currentBillAmount').textContent = 'Rs ' + formatNumber(Number(totalCharges));
     // Late Penalty Charges
     const penaltyAmount = getLatePenaltyCharges();
@@ -155,7 +155,7 @@ function updateAll() {
 }
 
 // Add event listeners for all relevant fields
-['genUnits','genTariff','adjUnits','adjTariff','deemedUnits','deemedTariff','latePenalty','dueDate'].forEach(id => {
+['genUnits', 'genTariff', 'adjUnits', 'adjTariff', 'deemedUnits', 'deemedTariff', 'latePenalty', 'dueDate'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
         el.addEventListener('input', updateAll);
@@ -167,10 +167,10 @@ function updateAll() {
 updateAll();
 
 // Existing listeners for address and name (optional, for logging)
-['companyName','billTo','shipTo','billNo','billDate','billStartDate','billEndDate','hsnCode'].forEach(id => {
+['companyName', 'billTo', 'shipTo', 'billNo', 'billDate', 'billStartDate', 'billEndDate', 'hsnCode'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-        el.addEventListener('input', function() {
+        el.addEventListener('input', function () {
             console.log(id + ':', this.value);
         });
     }
@@ -178,13 +178,13 @@ updateAll();
 
 // --- METER READINGS DYNAMIC TABLE ---
 function updateSummaryFromMeter(totalUnits) {
-    document.getElementById('billedUnits').textContent = totalUnits.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById('billedUnits').textContent = totalUnits.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const days = parseInt(document.getElementById('days').textContent) || 1;
     const plantCapacity = parseFloat(document.getElementById('plantCapacity').value) || 0;
     const kwhPerDay = totalUnits / days;
-    document.getElementById('kwhPerDay').textContent = kwhPerDay.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById('kwhPerDay').textContent = kwhPerDay.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const kwhPerKwpDay = plantCapacity ? (kwhPerDay / plantCapacity) : 0;
-    document.getElementById('kwhPerKwpDay').textContent = kwhPerKwpDay.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById('kwhPerKwpDay').textContent = kwhPerKwpDay.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const genUnitsInput = document.getElementById('genUnits');
     if (genUnitsInput) {
         genUnitsInput.value = totalUnits.toFixed(2);
@@ -208,7 +208,7 @@ function updateMeterTable() {
         row.querySelector('.meter-total').value = totalUnits.toFixed(2);
         total += totalUnits;
     });
-    document.getElementById('meterTotalUnits').textContent = total.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById('meterTotalUnits').textContent = total.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     updateSummaryFromMeter(total);
     updateBillAmountsFromInputs();
     updateBillSummary();
@@ -239,7 +239,7 @@ function attachMeterRowListeners(row) {
 
 document.querySelectorAll('#meterTableBody tr').forEach(attachMeterRowListeners);
 document.getElementById('addDeviceBtn').addEventListener('click', addMeterRow);
-document.getElementById('removeDeviceBtn').addEventListener('click', function() {
+document.getElementById('removeDeviceBtn').addEventListener('click', function () {
     const tbody = document.getElementById('meterTableBody');
     if (tbody.children.length > 1) {
         tbody.removeChild(tbody.lastElementChild);
@@ -268,10 +268,10 @@ function updateBillAmountsFromInputs() {
     document.getElementById('deemedAmount').textContent = formatNumber(deemedAmount);
 }
 
-['adjUnits','adjTariff','deemedUnits','deemedTariff'].forEach(id => {
+['adjUnits', 'adjTariff', 'deemedUnits', 'deemedTariff'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-        el.addEventListener('input', function() {
+        el.addEventListener('input', function () {
             updateBillAmountsFromInputs();
             updateBillSummary();
         });
@@ -291,7 +291,7 @@ function updateCurrentInvoiceAmount() {
     const latePenaltyText = document.getElementById('latePenaltyCharges').textContent.replace('Rs', '').replace(/,/g, '').trim();
     const latePenalty = parseFloat(latePenaltyText) || 0;
     const invoiceAmount = totalCharges + latePenalty;
-    document.getElementById('currentInvoiceAmount').textContent = 'Rs ' + invoiceAmount.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById('currentInvoiceAmount').textContent = 'Rs ' + invoiceAmount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 const latePenaltyChargesEl = document.getElementById('latePenaltyCharges');
@@ -332,7 +332,7 @@ idsToFormat.forEach(id => {
 // Print functionality for Generate Bill button
 const generateBtn = document.getElementById('generateBillBtn');
 if (generateBtn) {
-    generateBtn.addEventListener('click', function() {
+    generateBtn.addEventListener('click', function () {
         document.body.classList.add('print-bill');
         window.print();
         setTimeout(() => document.body.classList.remove('print-bill'), 1000);
@@ -343,7 +343,7 @@ if (generateBtn) {
 function attachRemoveRowListeners() {
     const billTableBody = document.getElementById('billTableBody');
     billTableBody.querySelectorAll('.remove-row-btn').forEach(btn => {
-        btn.onclick = function() {
+        btn.onclick = function () {
             const rows = billTableBody.querySelectorAll('tr');
             if (rows.length > 1) {
                 btn.closest('tr').remove();
@@ -355,12 +355,288 @@ function attachRemoveRowListeners() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+// --- PDF UPLOAD AND PARSING ---
+
+const uploadBtn = document.getElementById('uploadBillBtn');
+const pdfUploadInput = document.getElementById('pdfUpload');
+
+if (uploadBtn && pdfUploadInput) {
+    uploadBtn.addEventListener('click', () => {
+        pdfUploadInput.click();
+    });
+
+    pdfUploadInput.addEventListener('change', handlePdfUpload);
+}
+
+async function handlePdfUpload(event) {
+    console.log('PDF upload triggered');
+    const file = event.target.files[0];
+    if (!file || file.type !== 'application/pdf') {
+        alert('Please select a PDF file.');
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+        const pdfData = new Uint8Array(e.target.result);
+        try {
+            console.log('Reading PDF...');
+            const text = await getPdfText(pdfData);
+            console.log('PDF text:', text.slice(0, 500)); // Log first 500 chars
+            const parsedData = parsePdfText(text);
+            console.log('Parsed PDF data:', parsedData);
+            autofillForm(parsedData);
+            alert('Bill data imported successfully!');
+        } catch (error) {
+            console.error('Error parsing PDF:', error);
+            alert('Failed to parse the PDF bill. Please ensure it is a valid bill generated by this system.');
+        }
+    };
+    reader.readAsArrayBuffer(file);
+    event.target.value = ''; // Reset file input
+}
+
+async function getPdfText(data) {
+    const pdf = await pdfjsLib.getDocument({ data }).promise;
+    let textContent = '';
+    for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const content = await page.getTextContent();
+        
+        // Sort items by their vertical position, then horizontal, to reconstruct lines.
+        const items = content.items.slice().sort((a, b) => {
+            if (a.transform[5] > b.transform[5]) return -1; // Y position
+            if (a.transform[5] < b.transform[5]) return 1;
+            if (a.transform[4] < b.transform[4]) return -1; // X position
+            if (a.transform[4] > b.transform[4]) return 1;
+            return 0;
+        });
+
+        let lastY = -1;
+        items.forEach(item => {
+            // If the Y position has changed significantly, insert a newline.
+            if (lastY !== -1 && Math.abs(item.transform[5] - lastY) > 5) {
+                textContent += '\n';
+            }
+            textContent += item.str + ' ';
+            lastY = item.transform[5];
+        });
+        textContent += '\n\n';
+    }
+    return textContent;
+}
+
+function parsePdfText(text) {
+    console.log('PDF TEXT FOR DEBUGGING:', text); // Keep for debugging new PDFs
+    const data = {};
+
+    const getValue = (sourceText, regex) => {
+        if (!sourceText) return null;
+        const match = sourceText.match(regex);
+        return match ? match[1].trim() : null;
+    };
+
+    // --- Customer and Address Info (now in a simple block) ---
+    data.companyName = getValue(text, /M\/s\.(.*?)\s*Offtaker code/s);
+    data.offtakerCode = getValue(text, /Offtaker code\s*-\s*(.*?)\s*Bill To:/s);
+    data.billTo = getValue(text, /Bill To:\s*([\s\S]*?)\s*GSTIN:/s);
+    
+    // GSTIN can appear multiple times. We'll grab the first for billTo and second for shipTo.
+    const gstinMatches = text.matchAll(/GSTIN:\s*([A-Z0-9]+)/gs);
+    const gstinArray = Array.from(gstinMatches, m => m[1]);
+    if (gstinArray.length > 0) data.gstin = gstinArray[0];
+
+    data.shipTo = getValue(text, /Ship To:\s*([\s\S]*?)\s*GSTIN:\s*([A-Z0-9]+)/s);
+    data.plantCapacity = getValue(text, /Solar Plant Total Capacity \(kW\):\s*([\d.]+)/s);
+    
+    // --- Bill Details (Right Panel) ---
+    data.billNo = getValue(text, /Bill No:\s*([^\n]*)/s);
+    data.billDate = getValue(text, /Bill Date:\s*([^\n]*)/s);
+    data.billStartDate = getValue(text, /Bill Start Date:\s*([^\n]*)/s);
+    data.billEndDate = getValue(text, /Bill End Date:\s*([^\n]*)/s);
+    data.hsnCode = getValue(text, /HSN Code:\s*([^\n]*)/s);
+    data.dueDate = getValue(text, /Due Date:\s*([^\n]*)/s);
+    data.latePenalty = getValue(text, /Late Payment Penalty:\s*(.*?)\s*Current/s);
+
+    // --- Bill Breakup Table (Corrected Parsing for linear text) ---
+    const billBreakupText = getValue(text, /BREAKUP OF CURRENT BILL([\s\S]*?)Solar Charges/s);
+    if (billBreakupText) {
+        const genMatch = billBreakupText.match(/Generation\s+([\d,.-]+)\s+([\d,.-]+)/);
+        if(genMatch) {
+            data.genUnits = genMatch[1].replace(/,/g, '');
+            data.genTariff = genMatch[2].replace(/,/g, '');
+        }
+
+        const adjMatch = billBreakupText.match(/Adjustment\(kWh\)\s+([\d,.-]+)\s+([\d,.-]+)/);
+        if(adjMatch) {
+            data.adjUnits = adjMatch[1].replace(/,/g, '');
+            data.adjTariff = adjMatch[2].replace(/,/g, '');
+        }
+        
+        const deemedMatch = billBreakupText.match(/Deemed\s+Generation\s+([\d,.-]+)\s+([\d,.-]+)/);
+        if(deemedMatch) {
+            data.deemedUnits = deemedMatch[1].replace(/,/g, '');
+            data.deemedTariff = deemedMatch[2].replace(/,/g, '');
+        }
+    }
+
+    // --- Other fields ---
+    data.companyTitle = getValue(text, /^(.*?)\s*M\/s\./s);
+    data.remarks = getValue(text, /Remarks:\s*(.*?)\s*For any queries/s);
+    data.supplyMonth = getValue(text, /SOLAR BILL OF SUPPLY\s*-\s*([A-Za-z]+)/);
+    data.supplyYear = getValue(text, /SOLAR BILL OF SUPPLY\s*-\s*[A-Za-z]+\s*(\d{4})/);
+
+    // --- Meter Readings Table ---
+    data.meterReadings = [];
+    const meterSection = text.match(/METER READINGS([\s\S]*?)Total generation/);
+    if (meterSection) {
+        const rowRegex = /(Device-\d+)\s+([\d,.-]+)\s+([\d,.-]+)\s+[\d,.-]+\s+([\d,.-]+)\s+([\d,.-]+)/g;
+        let match;
+        while ((match = rowRegex.exec(meterSection[1])) !== null) {
+            data.meterReadings.push({
+                name: match[1],
+                start: match[2].replace(/,/g, ''),
+                end: match[3].replace(/,/g, ''),
+                mf: match[4].replace(/,/g, ''),
+                adj: match[5].replace(/,/g, '')
+            });
+        }
+    }
+
+    console.log('parsePdfText FINAL result:', data);
+    return data;
+}
+
+function autofillForm(data) {
+    console.log('autofillForm called with:', data);
+    if (!data) return;
+
+    const setVal = (id, value) => {
+        const el = document.getElementById(id);
+        if (!el) {
+            console.warn('Element not found for id:', id);
+            return;
+        }
+        if (value !== null && value !== undefined) {
+            // Handle both input/textarea and other elements like span
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.value = value;
+            } else {
+                el.textContent = value;
+            }
+            console.log('Set', id, 'to', value);
+        }
+    };
+
+    const parseDateForInput = (dateStr) => {
+        if (!dateStr) return '';
+        const parts = dateStr.match(/(\d{2})-(\w{3})-(\d{4})/);
+        if (!parts) return '';
+        const day = parts[1];
+        const monthStr = parts[2];
+        const year = parts[3];
+        const month = new Date(Date.parse(monthStr + " 1, 2012")).getMonth() + 1;
+        return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    };
+
+
+    // --- Company and Bill Details ---
+    setVal('companyTitle', data.companyTitle);
+    setVal('companyName', data.companyName);
+    setVal('offtakerCode', data.offtakerCode);
+    setVal('billTo', data.billTo);
+    setVal('shipTo', data.shipTo);
+    setVal('gstin', data.gstin);
+    setVal('plantCapacity', data.plantCapacity);
+
+    setVal('billNo', data.billNo);
+    setVal('billDate', parseDateForInput(data.billDate));
+    setVal('billStartDate', parseDateForInput(data.billStartDate));
+    setVal('billEndDate', parseDateForInput(data.billEndDate));
+    setVal('hsnCode', data.hsnCode);
+    setVal('dueDate', parseDateForInput(data.dueDate));
+    setVal('latePenalty', data.latePenalty);
+
+    // --- Bill Table ---
+    setVal('genUnits', data.genUnits?.replace(/,/g, ''));
+    setVal('genTariff', data.genTariff?.replace(/,/g, ''));
+    setVal('adjUnits', data.adjUnits?.replace(/,/g, ''));
+    setVal('adjTariff', data.adjTariff?.replace(/,/g, ''));
+    setVal('deemedUnits', data.deemedUnits?.replace(/,/g, ''));
+    setVal('deemedTariff', data.deemedTariff?.replace(/,/g, ''));
+
+    setVal('remarks', data.remarks);
+
+    // --- Payment Details ---
+    setVal('bankNameInput', data.bankNameInput);
+    setVal('acNoInput', data.acNoInput);
+    setVal('ifscInput', data.ifscInput);
+
+    // --- Supply Month/Year ---
+    setVal('supplyMonth', data.supplyMonth);
+    setVal('supplyYear', data.supplyYear);
+
+    // --- Meter Readings Table ---
+    if (data.meterReadings && data.meterReadings.length > 0) {
+        const tbody = document.getElementById('meterTableBody');
+        tbody.innerHTML = '';
+        data.meterReadings.forEach(reading => {
+            addMeterRow(); // This function adds a new row to the table.
+            const newRow = tbody.lastElementChild;
+            // Set all meter fields if present
+            const meterName = newRow.querySelector('input[type="text"].meter-input') || newRow.querySelector('.meter-name');
+            if (meterName) meterName.value = reading.name;
+            if (newRow.querySelector('.meter-start')) newRow.querySelector('.meter-start').value = reading.start;
+            if (newRow.querySelector('.meter-end')) newRow.querySelector('.meter-end').value = reading.end;
+            if (newRow.querySelector('.meter-mf')) newRow.querySelector('.meter-mf').value = reading.mf;
+            if (newRow.querySelector('.meter-adj')) newRow.querySelector('.meter-adj').value = reading.adj;
+        });
+    }
+
+    updateAll();
+    updateMeterTable();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     const addRowBtn = document.getElementById('addRowBtn');
     const billTableBody = document.getElementById('billTableBody');
     attachRemoveRowListeners();
     if (addRowBtn && billTableBody) {
-        addRowBtn.addEventListener('click', function() {
+        addRowBtn.addEventListener('click', function () {
+            const tr = document.createElement('tr');
+            tr.className = 'custom-bill-row';
+            tr.innerHTML = `
+                <td><input type="text" class="table-input custom-name" placeholder="Insert Name"></td>
+                <td><input type="number" class="table-input custom-units" value="0.00" step="0.01" placeholder="Insert Value"></td>
+                <td><input type="number" class="table-input custom-tariff" value="0.00" step="0.01" placeholder="Insert Value"></td>
+                <td><span class="custom-amount">0.00</span></td>
+                <td><button type="button" class="remove-row-btn" title="Remove Row">×</button></td>
+            `;
+            billTableBody.appendChild(tr);
+            attachRemoveRowListeners();
+            // Amount calculation logic
+            const unitsInput = tr.querySelector('.custom-units');
+            const tariffInput = tr.querySelector('.custom-tariff');
+            const amountSpan = tr.querySelector('.custom-amount');
+            function updateAmountAndAll() {
+                const units = parseFloat(unitsInput.value) || 0;
+                const tariff = parseFloat(tariffInput.value) || 0;
+                const amount = units * tariff;
+                amountSpan.textContent = amount.toFixed(2);
+                updateAll();
+            }
+            unitsInput.addEventListener('input', updateAmountAndAll);
+            tariffInput.addEventListener('input', updateAmountAndAll);
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addRowBtn = document.getElementById('addRowBtn');
+    const billTableBody = document.getElementById('billTableBody');
+    attachRemoveRowListeners();
+    if (addRowBtn && billTableBody) {
+        addRowBtn.addEventListener('click', function () {
             const tr = document.createElement('tr');
             tr.className = 'custom-bill-row';
             tr.innerHTML = `
