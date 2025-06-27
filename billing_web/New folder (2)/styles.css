@@ -218,9 +218,11 @@ textarea:focus {
     display: flex;
     background: #c8f6fa;
     border-radius: 4px;
-    padding: 12px 0;
+    padding: 12px 0px 12px 0px;
     justify-content: space-between;
     margin-bottom: 16px;
+    border: #000000 1px solid;
+    margin-right: 11px;
 }
 
 .summary-card {
@@ -236,7 +238,7 @@ textarea:focus {
     right: 0;
     width: 2px;
     height: 70%;
-    background: #b0b0b0;
+    background: #212020;
     opacity: 0.7;
     border-radius: 2px;
 }
@@ -279,6 +281,7 @@ textarea:focus {
     border-collapse: collapse;
     margin-bottom: 0;
     background: #fff;
+    border-spacing: 0 8px;
 }
 
 .bill-table th,
@@ -299,6 +302,7 @@ textarea:focus {
 .bill-table td:first-child,
 .bill-table th:first-child {
     text-align: left;
+    padding-left: 3.5px;
 }
 
 .table-input {
@@ -670,6 +674,10 @@ textarea:focus {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    /* Remove sticky/fixed positioning so footer scrolls with the page */
+    position: static;
+    background: #fff;
+    z-index: auto;
 }
 
 .footer-inner {
@@ -869,35 +877,39 @@ textarea:focus {
 }
 
 .add-device-btn {
-    margin-top: 10px;
-    padding: 6px 18px;
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
     font-size: 1rem;
     font-weight: 500;
-    background: #aef0f4;
-    border: 1.5px solid #222;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background 0.2s;
+    box-shadow: 0 2px 6px rgba(76,175,80,0.12);
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
 }
-
 .add-device-btn:hover {
-    background: #d3f7fa;
+    background: #388e3c;
+    box-shadow: 0 4px 12px rgba(76,175,80,0.18);
 }
 
 .remove-device-btn {
-    margin-top: 10px;
-    padding: 6px 18px;
+    background: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
     font-size: 1rem;
     font-weight: 500;
-    background: #ffd6d6;
-    border: 1.5px solid #222;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background 0.2s;
+    box-shadow: 0 2px 6px rgba(244,67,54,0.12);
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
 }
-
 .remove-device-btn:hover {
-    background: #ffeded;
+    background: #b71c1c;
+    box-shadow: 0 4px 12px rgba(244,67,54,0.18);
 }
 
 .faq-title {
@@ -964,14 +976,27 @@ textarea:focus {
         margin-bottom: 48px !important;
     }
 
-    .footer-section,
+    .footer-section {
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        width: 100% !important;
+        background: #fff !important;
+        z-index: 9999 !important;
+        page-break-after: auto !important;
+        page-break-before: auto !important;
+        page-break-inside: avoid !important;
+    }
     .footer-inner {
-        margin-top: 100px !important;
+        margin-top: 0 !important;
         padding-top: 0 !important;
     }
 
     .footer-divider {
-        margin-top: 155px !important;
+        margin-top: 0 !important;
         padding-top: 0 !important;
     }
 
@@ -1083,6 +1108,11 @@ textarea:focus {
     .bill-supply-box {
         padding-left: 8px !important;
         padding-right: 0px !important;
+    }
+
+    .watermark-img {
+        margin-top: -16px !important;
+        margin-bottom: -10px !important; 
     }
 }
 
@@ -1230,6 +1260,15 @@ textarea:focus {
 }
 
 .bill-table td,
+.bill-table input,
+.bill-table span {
+    text-align: right;
+}
+.bill-table td:first-child,
+.bill-table input.custom-name {
+    text-align: left;
+}
+
 .bill-summary-value,
 .table-input {
     font-size: 1rem !important;
@@ -1264,4 +1303,177 @@ textarea:focus {
         width: 100% !important;
         display: block !important;
     }
+}
+
+.customer-info-bordered {
+    border: 2px solid #222;
+    border-radius: 8px;
+    padding: 0px 0px 0px 10px;
+    margin-bottom: 35px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.customer-info-bordered .gstin-block {
+    margin-bottom: 0;
+}
+.customer-info-bordered .address-block {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.shipto-info-bordered {
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 0px 0px 0px 10px;
+    margin-bottom: 10px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgb(255, 255, 255);
+}
+
+.shipto-info-bordered .address-block {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.shipto-info-bordered .gstin-block {
+    margin-top: 0;
+}
+
+.capacity-info-bordered {
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 2px 0px 2px 10px;
+    margin-bottom: 35px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgb(255, 255, 255);
+}
+
+.summary-info-bordered {
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 0px 0px 0px 10px;
+    margin-bottom: 18px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgb(255, 255, 255);
+    margin-top: 0;
+}
+
+.summary-info-bordered .summary-section {
+    margin-top: 5px;
+}
+
+.watermark-img {
+    max-width: 180px;
+    height: auto;
+    display: block;
+    margin-bottom: 2px;
+    margin-top: -8px;
+}
+
+.custom-name {
+    text-align: left;
+}
+
+@media print {
+    #addRowBtn,
+    .remove-row-btn {
+        display: none !important;
+    }
+}
+
+@media print {
+    .right-section-wrapper {
+        position: relative !important;
+    }
+    .footer-section {
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        width: 100% !important;
+        background: #fff !important;
+        z-index: 9999 !important;
+        page-break-after: auto !important;
+        page-break-before: auto !important;
+        page-break-inside: avoid !important;
+    }
+    .footer-inner {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    .footer-divider {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+
+@media print {
+    .bill-table th:last-child,
+    .bill-table td:last-child {
+        display: none !important;
+    }
+    .bill-table {
+        width: 56.5vw !important;
+        max-width: 58.5vw !important;
+        margin-right: 16px !important;
+        margin-left: 0 !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        box-sizing: border-box !important;
+    }
+    .bill-table th,
+    .bill-table td {
+        padding-right: 0 !important;
+    }
+    .left-portion,
+    .content-row,
+    .page-box {
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+#addRowBtn {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(76,175,80,0.12);
+    transition: background 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+}
+#addRowBtn:hover {
+    background: #388e3c;
+    box-shadow: 0 4px 12px rgba(76,175,80,0.18);
+}
+
+.remove-row-btn {
+    background: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(244,67,54,0.12);
+    transition: background 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.remove-row-btn:hover {
+    background: #b71c1c;
+    box-shadow: 0 4px 12px rgba(244,67,54,0.18);
 }

@@ -85,8 +85,16 @@ function updateBillSummary() {
     const genAmount = parseFloat(document.getElementById('genAmount').textContent?.replace(/,/g, '') || document.getElementById('genAmount').value || 0) || 0;
     const adjAmount = parseFloat(document.getElementById('adjAmount').textContent?.replace(/,/g, '') || document.getElementById('adjAmount').value || 0) || 0;
     const deemedAmount = parseFloat(document.getElementById('deemedAmount').textContent?.replace(/,/g, '') || document.getElementById('deemedAmount').value || 0) || 0;
+    // Add custom rows
+    let customTotal = 0;
+    document.querySelectorAll('.custom-bill-row').forEach(row => {
+        const amountSpan = row.querySelector('.custom-amount');
+        if (amountSpan) {
+            customTotal += parseFloat(amountSpan.textContent.replace(/,/g, '') || 0);
+        }
+    });
     // Solar Charges = sum of all amounts
-    const solarCharges = genAmount + adjAmount + deemedAmount;
+    const solarCharges = genAmount + adjAmount + deemedAmount + customTotal;
     // Electricity Duty and GST are 0 for now
     const electricityDuty = 0;
     const gst = 0;
@@ -330,3 +338,53 @@ if (generateBtn) {
         setTimeout(() => document.body.classList.remove('print-bill'), 1000);
     });
 }
+
+// --- Add custom row to bill table and allow removing any row, but keep at least one row ---
+function attachRemoveRowListeners() {
+    const billTableBody = document.getElementById('billTableBody');
+    billTableBody.querySelectorAll('.remove-row-btn').forEach(btn => {
+        btn.onclick = function() {
+            const rows = billTableBody.querySelectorAll('tr');
+            if (rows.length > 1) {
+                btn.closest('tr').remove();
+                updateAll();
+            } else {
+                alert('At least one row must remain in the table.');
+            }
+        };
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addRowBtn = document.getElementById('addRowBtn');
+    const billTableBody = document.getElementById('billTableBody');
+    attachRemoveRowListeners();
+    if (addRowBtn && billTableBody) {
+        addRowBtn.addEventListener('click', function() {
+            const tr = document.createElement('tr');
+            tr.className = 'custom-bill-row';
+            tr.innerHTML = `
+                <td><input type="text" class="table-input custom-name" placeholder="Insert Name"></td>
+                <td><input type="number" class="table-input custom-units" value="0.00" step="0.01" placeholder="Insert Value"></td>
+                <td><input type="number" class="table-input custom-tariff" value="0.00" step="0.01" placeholder="Insert Value"></td>
+                <td><span class="custom-amount">0.00</span></td>
+                <td><button type="button" class="remove-row-btn" title="Remove Row">×</button></td>
+            `;
+            billTableBody.appendChild(tr);
+            attachRemoveRowListeners();
+            // Amount calculation logic
+            const unitsInput = tr.querySelector('.custom-units');
+            const tariffInput = tr.querySelector('.custom-tariff');
+            const amountSpan = tr.querySelector('.custom-amount');
+            function updateAmountAndAll() {
+                const units = parseFloat(unitsInput.value) || 0;
+                const tariff = parseFloat(tariffInput.value) || 0;
+                const amount = units * tariff;
+                amountSpan.textContent = amount.toFixed(2);
+                updateAll();
+            }
+            unitsInput.addEventListener('input', updateAmountAndAll);
+            tariffInput.addEventListener('input', updateAmountAndAll);
+        });
+    }
+});

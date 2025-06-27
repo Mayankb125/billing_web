@@ -15,42 +15,58 @@
                         <span class="company-title-input underline">Enercore New Energy Private Limited</span>
                     </div>
                     <div class="company-section">
-                        <div class="company-name-block"><input type="text" id="companyName" class="company-name-main no-border" placeholder="Company Name" value="M/s. Mikado Realtors Pvt. Ltd."></div>
-                        <div class="offtaker-block"><span class="offtaker-label">Offtaker code</span> - <input type="text" id="offtakerCode" value="SPC-4118-0013" style="border:none; background:transparent; width:120px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
-                        <div class="address-section">
+                        <!-- Start bordered customer info section -->
+                        <div class="customer-info-bordered">
+                            <div class="company-name-block"><input type="text" id="companyName" class="company-name-main no-border" placeholder="Company Name" value="M/s. Mikado Realtors Pvt. Ltd."></div>
+                            <div class="offtaker-block"><span class="offtaker-label">Offtaker code</span> - <input type="text" id="offtakerCode" value="SPC-4118-0013" style="border:none; background:transparent; width:120px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
                             <div class="address-block">
                                 <div class="address-label billto-label">Bill To:</div>
                                 <div class="address-value"><textarea id="billTo" class="address-textarea" rows="2" placeholder="Bill To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea></div>
-                            </div>
-                            <div class="address-block">
-                                <div class="address-label shipto-label">Ship To:</div>
-                                <div class="address-value"><textarea id="shipTo" class="address-textarea" rows="2" placeholder="Ship To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea></div>
-                            </div>
-                            <div class="gstin-capacity-row">
                                 <div class="gstin-block"><span class="gstin-label">GSTIN:</span> <input type="text" id="gstin" value="06AAECM7429E1ZJ" style="border:none; background:transparent; width:160px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
-                                <div class="capacity-block"><span class="capacity-label">Solar Plant Total Capacity (kW):</span> <input type="number" id="plantCapacity" value="328.09" style="border:none; background:transparent; width:80px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                            </div>
+                        </div>
+                        <!-- End bordered customer info section -->
+                        <div class="address-section">
+                            <!-- Start bordered ship to info section -->
+                            <div class="shipto-info-bordered">
+                                <div class="address-block">
+                                    <div class="address-label shipto-label">Ship To:</div>
+                                    <div class="address-value"><textarea id="shipTo" class="address-textarea" rows="2" placeholder="Ship To Address">Khewat No. 221/274 Village Behrampur Tehsil Sohna, Gurugram-122004, Haryana, India</textarea></div>
+                                </div>
+                                <div class="gstin-block"><span class="gstin-label">GSTIN:</span> <input type="text" id="gstin" value="06AAECM7429E1ZJ" style="border:none; background:transparent; width:160px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                            </div>
+                            <!-- End bordered ship to info section -->
+                            <div class="gstin-capacity-row">
+                                <!-- Start bordered capacity info section -->
+                                <div class="capacity-info-bordered">
+                                    <div class="capacity-block"><span class="capacity-label">Solar Plant Total Capacity (kW):</span> <input type="number" id="plantCapacity" value="328.09" style="border:none; background:transparent; width:80px; font:inherit; color:inherit; padding:0; margin:0; outline:none;"></div>
+                                </div>
+                                <!-- End bordered capacity info section -->
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="summary-section">
-                    <div class="summary-title">SUMMARY OF CONSUMPTION</div>
-                    <div class="summary-cards">
-                        <div class="summary-card">
-                            <span class="summary-value-bold" id="billedUnits">0.00</span> <br>
-                            <span class="summary-label">Total Billed Units</span>
-                        </div>
-                        <div class="summary-card">
-                            <span class="summary-value-bold" id="days">31</span> <br>
-                            <span class="summary-label">Days</span>
-                        </div>
-                        <div class="summary-card">
-                            <span class="summary-value-bold" id="kwhPerDay">0.00</span> <br>
-                            <span class="summary-label">kWh/Day</span>
-                        </div>
-                        <div class="summary-card">
-                            <span class="summary-value-bold" id="kwhPerKwpDay">0.00</span> <br>
-                            <span class="summary-label">kWh/kWp/Day</span>
+                <!-- Wrap summary-section in a bordered box -->
+                <div class="summary-info-bordered">
+                    <div class="summary-section">
+                        <div class="summary-title">SUMMARY OF CONSUMPTION</div>
+                        <div class="summary-cards">
+                            <div class="summary-card">
+                                <span class="summary-value-bold" id="billedUnits">0.00</span> <br>
+                                <span class="summary-label">Total Billed Units</span>
+                            </div>
+                            <div class="summary-card">
+                                <span class="summary-value-bold" id="days">31</span> <br>
+                                <span class="summary-label">Days</span>
+                            </div>
+                            <div class="summary-card">
+                                <span class="summary-value-bold" id="kwhPerDay">0.00</span> <br>
+                                <span class="summary-label">kWh/Day</span>
+                            </div>
+                            <div class="summary-card">
+                                <span class="summary-value-bold" id="kwhPerKwpDay">0.00</span> <br>
+                                <span class="summary-label">kWh/kWp/Day</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,29 +79,45 @@
                                 <th>Units(kWh)</th>
                                 <th>Tariff(Rs/kWh)</th>
                                 <th>Amount(Rs)</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="billTableBody">
                             <tr>
                                 <td>Generation</td>
                                 <td><input type="number" id="genUnits" class="table-input" value="0.00" step="0.01"></td>
                                 <td><input type="number" id="genTariff" class="table-input" value="5.590"></td>
                                 <td><span id="genAmount">0.00</span></td>
+                                <td><button type="button" class="remove-row-btn" title="Remove Row">×</button></td>
                             </tr>
                             <tr>
                                 <td>Adjustment(kWh)</td>
                                 <td><input type="number" id="adjUnits" class="table-input" value="0.00"></td>
                                 <td><input type="number" id="adjTariff" class="table-input" value="5.590"></td>
                                 <td><span id="adjAmount">0.00</span></td>
+                                <td><button type="button" class="remove-row-btn" title="Remove Row">×</button></td>
                             </tr>
                             <tr>
                                 <td>Deemed Generation</td>
                                 <td><input type="number" id="deemedUnits" class="table-input" value="0.00"></td>
                                 <td><input type="number" id="deemedTariff" class="table-input" value="5.590"></td>
                                 <td><span id="deemedAmount">0.00</span></td>
+                                <td><button type="button" class="remove-row-btn" title="Remove Row">×</button></td>
                             </tr>
                         </tbody>
                     </table>
+                    <!-- Plus button to add new row -->
+                    <button id="addRowBtn" type="button">+</button>
+                    <!-- Template for custom row (for reference, not rendered) -->
+                    <!--
+                    <tr class="custom-bill-row">
+                        <td><input type="text" class="table-input custom-name" placeholder="Insert Name"></td>
+                        <td><input type="number" class="table-input custom-units" value="0.00" step="0.01" placeholder="Insert Value"></td>
+                        <td><input type="number" class="table-input custom-tariff" value="0.00" step="0.01" placeholder="Insert Value"></td>
+                        <td><span class="custom-amount">0.00</span></td>
+                        <td><button type="button" class="remove-row-btn" title="Remove Row">×</button></td>
+                    </tr>
+                    -->
                     <table class="bill-summary-table">
                         <tbody>
                             <tr>
@@ -115,92 +147,95 @@
                     For any queries contact here <span class="contact-email">resco.billing@fourthpartner.co</span>
                 </div>
             </div>
-            <div class="right-portion">
-                <!-- Right portion: Bill of Supply and Overview -->
-                <div class="bill-supply-box">
-                    <div class="bill-supply-title">
-                        <span class="print-hide">
-                            SOLAR BILL OF SUPPLY -
-                            <input type="text" id="supplyMonth" class="supply-title-input" value="May" style="width: 50px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;" maxlength="9">
-                            <input type="number" id="supplyYear" class="supply-title-input" value="2025" style="width: 60px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;" min="2000" max="2099">
-                        </span>
-                        <span class="print-only" id="supplyTitlePrint" style="display:none;"></span>
-                    </div>
-                    <div class="bill-supply-details">
-    <div>
-        <span class="bill-supply-label">Bill No:</span>
-        <input type="text" id="billNo" class="right-input" value="S4118/TS/26/0033">
-        <span class="right-value" id="billNoPrint"></span>
-    </div>
-    <div>
-        <span class="bill-supply-label">Bill Date:</span>
-        <input type="date" id="billDate" class="right-input" value="2025-06-05">
-        <span class="right-value" id="billDatePrint"></span>
-    </div>
-    <div>
-        <span class="bill-supply-label">Bill Start Date:</span>
-        <input type="date" id="billStartDate" class="right-input" value="2025-05-01">
-        <span class="right-value" id="billStartDatePrint"></span>
-    </div>
-    <div>
-        <span class="bill-supply-label">Bill End Date:</span>
-        <input type="date" id="billEndDate" class="right-input" value="2025-05-31">
-        <span class="right-value" id="billEndDatePrint"></span>
-    </div>
-    <div>
-        <span class="bill-supply-label">HSN Code:</span>
-        <input type="text" id="hsnCode" class="right-input" value="27160000">
-        <span class="right-value" id="hsnCodePrint"></span>
-    </div>
-</div>
-<div class="bill-overview-title">YOUR BILL OVERVIEW</div>
-<div class="bill-overview-details">
-    <div>
-        <span class="bill-supply-label">Due Date:</span>
-        <input type="date" id="dueDate" class="right-input" value="2025-07-05">
-        <span class="right-value" id="dueDatePrint"></span>
-    </div>
-    <div class="late-penalty-row">
-    <span class="bill-supply-label">Late Payment Penalty:</span>
-    <input type="text" id="latePenalty" class="right-input" value="2% / Month">
-    <span class="right-value" id="latePenaltyPrint"></span>
-</div>
-</div>
-                    <div class="bill-amount-section">
-                        <div class="amount-label">Current Invoice Amount</div>
-                        <div class="amount-invoice-bg"><span class="amount-invoice" id="currentInvoiceAmount">Rs 2,40,353</span></div>
-                        <div class="amount-equals">Equals</div>
-                        <div class="amount-block-bg">
-                            <div class="amount-block-label">Current Bill Amount</div>
-                            <div class="amount-block-white"><span class="amount-block-value" id="currentBillAmount">Rs 2,40,353.23</span></div>
+            <div class="right-section-wrapper">
+                <div><img src="water mark.png" alt="watermark" class="watermark-img"></div>
+                <div class="right-portion">
+                    <!-- Right portion: Bill of Supply and Overview -->
+                    <div class="bill-supply-box">
+                        <div class="bill-supply-title">
+                            <span class="print-hide">
+                                SOLAR BILL OF SUPPLY -
+                                <input type="text" id="supplyMonth" class="supply-title-input" value="May" style="width: 50px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;" maxlength="9">
+                                <input type="number" id="supplyYear" class="supply-title-input" value="2025" style="width: 60px; text-align: center; font-weight: bold; border: none; border-bottom: 1.5px solid #222; background: transparent; font-size: 1.1rem; margin: 0 2px;" min="2000" max="2099">
+                            </span>
+                            <span class="print-only" id="supplyTitlePrint" style="display:none;"></span>
                         </div>
-                        <div class="amount-plus">+</div>
-                        <div class="amount-block-bg">
-                            <div class="amount-block-label">Late Penalty Charges</div>
-                            <div class="amount-block-white"><span class="amount-block-value" id="latePenaltyCharges">Rs 0.00</span></div>
+                        <div class="bill-supply-details">
+                            <div>
+                                <span class="bill-supply-label">Bill No:</span>
+                                <input type="text" id="billNo" class="right-input" value="S4118/TS/26/0033">
+                                <span class="right-value" id="billNoPrint"></span>
+                            </div>
+                            <div>
+                                <span class="bill-supply-label">Bill Date:</span>
+                                <input type="date" id="billDate" class="right-input" value="2025-06-05">
+                                <span class="right-value" id="billDatePrint"></span>
+                            </div>
+                            <div>
+                                <span class="bill-supply-label">Bill Start Date:</span>
+                                <input type="date" id="billStartDate" class="right-input" value="2025-05-01">
+                                <span class="right-value" id="billStartDatePrint"></span>
+                            </div>
+                            <div>
+                                <span class="bill-supply-label">Bill End Date:</span>
+                                <input type="date" id="billEndDate" class="right-input" value="2025-05-31">
+                                <span class="right-value" id="billEndDatePrint"></span>
+                            </div>
+                            <div>
+                                <span class="bill-supply-label">HSN Code:</span>
+                                <input type="text" id="hsnCode" class="right-input" value="27160000">
+                                <span class="right-value" id="hsnCodePrint"></span>
+                            </div>
+                        </div>
+                        <div class="bill-overview-title">YOUR BILL OVERVIEW</div>
+                        <div class="bill-overview-details">
+                            <div>
+                                <span class="bill-supply-label">Due Date:</span>
+                                <input type="date" id="dueDate" class="right-input" value="2025-07-05">
+                                <span class="right-value" id="dueDatePrint"></span>
+                            </div>
+                            <div class="late-penalty-row">
+                                <span class="bill-supply-label">Late Payment Penalty:</span>
+                                <input type="text" id="latePenalty" class="right-input" value="2% / Month">
+                                <span class="right-value" id="latePenaltyPrint"></span>
+                            </div>
+                        </div>
+                        <div class="bill-amount-section">
+                            <div class="amount-label">Current Invoice Amount</div>
+                            <div class="amount-invoice-bg"><span class="amount-invoice" id="currentInvoiceAmount">Rs 2,40,353</span></div>
+                            <div class="amount-equals">Equals</div>
+                            <div class="amount-block-bg">
+                                <div class="amount-block-label">Current Bill Amount</div>
+                                <div class="amount-block-white"><span class="amount-block-value" id="currentBillAmount">Rs 2,40,353.23</span></div>
+                            </div>
+                            <div class="amount-plus">+</div>
+                            <div class="amount-block-bg">
+                                <div class="amount-block-label">Late Penalty Charges</div>
+                                <div class="amount-block-white"><span class="amount-block-value" id="latePenaltyCharges">Rs 0.00</span></div>
+                            </div>
+                        </div>
+                        <div class="payment-details-section">
+                            <div class="payment-title">PAYMENT DETAILS</div>
+                            <div class="payment-row">
+                                <span class="payment-label">Bank Name:</span>
+                                <input type="text" class="payment-input" id="bankNameInput" value="Sun Renew. RT  -  Trust and Retention Account - 777705011335" oninput="document.getElementById('bankNamePrint').textContent=this.value;">
+                                <span class="payment-value" id="bankNamePrint" style="display:none;">Sun Renew. RT  -  Trust and Retention Account - 777705011335</span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">A/C No:</span>
+                                <input type="text" class="payment-input" id="acNoInput" value="777705011335" oninput="document.getElementById('acNoPrint').textContent=this.value;">
+                                <span class="payment-value" id="acNoPrint" style="display:none;">777705011335</span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">IFSC Code:</span>
+                                <input type="text" class="payment-input" id="ifscInput" value="ICIC0000076" oninput="document.getElementById('ifscPrint').textContent=this.value;">
+                                <span class="payment-value" id="ifscPrint" style="display:none;">ICIC0000076</span>
+                            </div>
+                            <div class="payment-row payment-signatory-label">Authorized Signatory:</div>
+                            <div class="payment-row payment-signatory-name">Mr. A V Rajasekhar</div>
+                            <!-- Leave white space here for signature and verification -->
                         </div>
                     </div>
-                    <div class="payment-details-section">
-    <div class="payment-title">PAYMENT DETAILS</div>
-    <div class="payment-row">
-    <span class="payment-label">Bank Name:</span>
-    <input type="text" class="payment-input" id="bankNameInput" value="Sun Renew. RT  -  Trust and Retention Account - 777705011335" oninput="document.getElementById('bankNamePrint').textContent=this.value;">
-    <span class="payment-value" id="bankNamePrint" style="display:none;">Sun Renew. RT  -  Trust and Retention Account - 777705011335</span>
-</div>
-<div class="payment-row">
-    <span class="payment-label">A/C No:</span>
-    <input type="text" class="payment-input" id="acNoInput" value="777705011335" oninput="document.getElementById('acNoPrint').textContent=this.value;">
-    <span class="payment-value" id="acNoPrint" style="display:none;">777705011335</span>
-</div>
-<div class="payment-row">
-    <span class="payment-label">IFSC Code:</span>
-    <input type="text" class="payment-input" id="ifscInput" value="ICIC0000076" oninput="document.getElementById('ifscPrint').textContent=this.value;">
-    <span class="payment-value" id="ifscPrint" style="display:none;">ICIC0000076</span>
-</div>
-    <div class="payment-row payment-signatory-label">Authorized Signatory:</div>
-    <div class="payment-row payment-signatory-name">Mr. A V Rajasekhar</div>
-    <!-- Leave white space here for signature and verification -->
-</div>
                 </div>
             </div>
         </div>
